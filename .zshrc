@@ -114,16 +114,16 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$PATH:/snap/bin"
 # enable color support of ls and also add handy aliases
-    alias ls='ls --color=auto'
+    #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+#alias ll='ls -alF'
+#alias la='ls -A'
+#alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 # ~/.bash_aliases, instead of adding them here directly.
@@ -134,5 +134,11 @@ alias save='git add . && git commit -m "autosave" && git push'
 alias savenvim='cd ~/.config/nvim && git add . && git commit -m "autosave" && git push && cd -'
 alias savelatex='cd ~/latex-files && git add . && git commit -m "autosave" && git push && cd -'
 alias savedots='cd ~/dotfiles && git add . && git commit -m "update dotfiles" && git push && cd -'
+alias ls='eza --icons=always'
+alias ll='eza -lh --icons=always'
+alias la='eza -lha --icons=always'
+alias lt='eza --tree --icons=always'
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+
+eval "$(zoxide init zsh)" 
