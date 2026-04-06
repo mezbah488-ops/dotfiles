@@ -134,10 +134,10 @@ alias save='git add . && git commit -m "autosave" && git push'
 alias savenvim='cd ~/.config/nvim && git add . && git commit -m "autosave" && git push && cd -'
 alias savelatex='cd ~/latex-files && git add . && git commit -m "autosave" && git push && cd -'
 alias savedots='cd ~/dotfiles && git add . && git commit -m "update dotfiles" && git push && cd -'
-alias ls='eza --icons=always'
-alias ll='eza -lh --icons=always'
-alias la='eza -lha --icons=always'
-alias lt='eza --tree --icons=always'
+alias ls='eza --icons=always --git'
+alias ll='eza -lh --icons=always --git'
+alias la='eza -lha --icons=always --git'
+alias lt='eza --tree --icons=always --git'
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 
