@@ -98,11 +98,12 @@ rm -rf "$HOME/.config/alacritty"
 ln -sf "$DOTFILES/alacritty" "$HOME/.config/alacritty"
 echo "Linked alacritty config"
 
-# Neovim (if nvim config exists in dotfiles)
-if [ -d "$DOTFILES/nvim" ]; then
-    rm -rf "$HOME/.config/nvim"
-    ln -sf "$DOTFILES/nvim" "$HOME/.config/nvim"
-    echo "Linked nvim config"
+# Neovim
+echo "Cloning nvim config..."
+if [ ! -d "$HOME/.config/nvim" ]; then
+    git clone https://github.com/mezbah488-ops/nvim-config.git "$HOME/.config/nvim"
+else
+    echo "nvim config already exists, skipping."
 fi
 
 # Kitty (if kitty config exists in dotfiles)
