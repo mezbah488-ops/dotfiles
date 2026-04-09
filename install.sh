@@ -10,7 +10,7 @@ DOTFILES="$HOME/dotfiles"
 
 # ── 1. System packages ────────────────────────────────────────────────────────
 echo ""
-echo "[1/9] Installing system packages..."
+echo "[1/10] Installing system packages..."
 sudo apt update -y
 sudo apt install -y \
     zsh \
@@ -25,20 +25,31 @@ sudo apt install -y \
     latexmk \
     texlive-latex-extra \
     zsh-syntax-highlighting \
-    eza
+    eza \
+    inkscape \
+    python3-pip
 
-# ── 2. Oh My Zsh ─────────────────────────────────────────────────────────────
+# ── 2. inkscape-figures ───────────────────────────────────────────────────────
 echo ""
-echo "[2/9] Installing Oh My Zsh..."
+echo "[2/10] Installing inkscape-figures..."
+if ! command -v inkscape-figures &>/dev/null; then
+    pip3 install inkscape-figures --break-system-packages
+else
+    echo "inkscape-figures already installed, skipping."
+fi
+
+# ── 3. Oh My Zsh ─────────────────────────────────────────────────────────────
+echo ""
+echo "[3/10] Installing Oh My Zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo "Oh My Zsh already installed, skipping."
 fi
 
-# ── 3. Powerlevel10k ──────────────────────────────────────────────────────────
+# ── 4. Powerlevel10k ──────────────────────────────────────────────────────────
 echo ""
-echo "[3/9] Installing Powerlevel10k..."
+echo "[4/10] Installing Powerlevel10k..."
 P10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 if [ ! -d "$P10K_DIR" ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10K_DIR"
@@ -46,9 +57,9 @@ else
     echo "Powerlevel10k already installed, skipping."
 fi
 
-# ── 4. zsh-autosuggestions ────────────────────────────────────────────────────
+# ── 5. zsh-autosuggestions ────────────────────────────────────────────────────
 echo ""
-echo "[4/9] Installing zsh-autosuggestions..."
+echo "[5/10] Installing zsh-autosuggestions..."
 ZSH_AUTO="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 if [ ! -d "$ZSH_AUTO" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_AUTO"
@@ -56,18 +67,18 @@ else
     echo "zsh-autosuggestions already installed, skipping."
 fi
 
-# ── 5. zoxide ─────────────────────────────────────────────────────────────────
+# ── 6. zoxide ─────────────────────────────────────────────────────────────────
 echo ""
-echo "[5/9] Installing zoxide..."
+echo "[6/10] Installing zoxide..."
 if ! command -v zoxide &>/dev/null; then
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 else
     echo "zoxide already installed, skipping."
 fi
 
-# ── 6. JetBrains Mono Nerd Font ───────────────────────────────────────────────
+# ── 7. JetBrains Mono Nerd Font ───────────────────────────────────────────────
 echo ""
-echo "[6/9] Installing JetBrains Mono Nerd Font..."
+echo "[7/10] Installing JetBrains Mono Nerd Font..."
 FONT_DIR="$HOME/.local/share/fonts"
 mkdir -p "$FONT_DIR"
 if ! fc-list | grep -qi "JetBrainsMono"; then
@@ -81,9 +92,9 @@ else
     echo "JetBrains Mono Nerd Font already installed, skipping."
 fi
 
-# ── 7. Symlink dotfiles ───────────────────────────────────────────────────────
+# ── 8. Symlink dotfiles ───────────────────────────────────────────────────────
 echo ""
-echo "[7/9] Symlinking dotfiles..."
+echo "[8/10] Symlinking dotfiles..."
 
 # .zshrc
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
@@ -99,30 +110,27 @@ ln -sf "$DOTFILES/alacritty" "$HOME/.config/alacritty"
 echo "Linked alacritty config"
 
 # Neovim
-echo "Cloning nvim config..."
-if [ ! -d "$HOME/.config/nvim" ]; then
-    git clone https://github.com/mezbah488-ops/nvim-config.git "$HOME/.config/nvim"
-else
-    echo "nvim config already exists, skipping."
-fi
+rm -rf "$HOME/.config/nvim"
+ln -sf "$DOTFILES/nvim" "$HOME/.config/nvim"
+echo "Linked nvim config"
 
-# Kitty (if kitty config exists in dotfiles)
+# Kitty
 if [ -d "$DOTFILES/kitty" ]; then
     rm -rf "$HOME/.config/kitty"
     ln -sf "$DOTFILES/kitty" "$HOME/.config/kitty"
     echo "Linked kitty config"
 fi
 
-# Zathura (if zathura config exists in dotfiles)
+# Zathura
 if [ -d "$DOTFILES/zathura" ]; then
     rm -rf "$HOME/.config/zathura"
     ln -sf "$DOTFILES/zathura" "$HOME/.config/zathura"
     echo "Linked zathura config"
 fi
 
-# ── 8. Set Zsh as default shell ───────────────────────────────────────────────
+# ── 9. Set Zsh as default shell ───────────────────────────────────────────────
 echo ""
-echo "[8/9] Setting Zsh as default shell..."
+echo "[9/10] Setting Zsh as default shell..."
 if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
     echo "Default shell set to Zsh. Please log out and back in."
@@ -130,7 +138,7 @@ else
     echo "Zsh is already the default shell."
 fi
 
-# ── 9. Done ───────────────────────────────────────────────────────────────────
+# ── 10. Done ──────────────────────────────────────────────────────────────────
 echo ""
 echo "================================================"
 echo "  Setup complete! Please log out and back in."
