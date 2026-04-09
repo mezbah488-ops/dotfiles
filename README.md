@@ -14,7 +14,7 @@ My personal dotfiles for a clean Ubuntu setup with a LaTeX workflow.
 
 ## Installation
 
-### Fresh Ubuntu Install
+### Fresh installation on Ubuntu
 
 ```bash
 # 1. Clone the dotfiles
