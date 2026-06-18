@@ -82,4 +82,4 @@ dotfiles/
 ## Requirements
 
 - Ubuntu 22.04 or later
-- Internet connection during installation
+
