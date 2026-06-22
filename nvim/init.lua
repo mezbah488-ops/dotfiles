@@ -3,7 +3,7 @@
 -- =========================
 
 -- Use system clipboard for all yank, delete, change, and put operations
-vim.fn.serverstart '\\\\.\\pipe\\nvim-latex'
+vim.fn.serverstart '/tmp/nvim-latex'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
@@ -221,7 +221,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 -- Open current file in browser
-vim.keymap.set('n', '<leader>o', ':!start %<CR>', { desc = 'Open in browser' })
+vim.keymap.set('n', '<leader>o', ':!xdg-open %<CR>', { desc = 'Open in browser' })
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -1031,7 +1031,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'quiet'
     end,
   },
 

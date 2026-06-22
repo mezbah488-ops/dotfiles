@@ -1,46 +1,72 @@
 {
-	"Preamble": {
+	"mdframed": {
+    "prefix": "mdframe",
+    "body": [
+        "\\begin{mdframed}",
+        "\t${1}",
+        "\\end{mdframed}"
+    ],
+    "description": "mdframed environment"
+},
+	"Centered Incfig [Half Scale]": {
+    "prefix": "incfig_center",
+    "body": "\\begin{center}\n\t$$\\vcenter{\\hbox{\\scriptsize \\incfig[0.5]{$1}}}$$\n\\end{center}${0}",
+    "description": "Centered half-scale incfig figure"
+},
+"Preamble": {
     "prefix": "preamble",
     "body": [
         "\\documentclass[11pt,a4paper]{article}",
+        "",
+        "% --- Page layout ---",
         "\\usepackage[margin=1in]{geometry}",
+        "\\usepackage{microtype}",
+        "\\usepackage{fancyhdr}",
+        "\\setlength{\\headheight}{14pt}",
+        "",
+        "% --- Math ---",
         "\\usepackage{amsmath, amssymb, amsfonts}",
         "\\usepackage{amsthm}",
-        "\\newtheorem{theorem}{Theorem}",
         "\\usepackage{mathtools}",
+        "\\usepackage{bbold}",
+        "\\usepackage{slashed}",
+        "\\usepackage{braket}",
+        "\\usepackage{cancel}",
+        "",
+        "% --- Theorems ---",
+        "\\newtheorem{theorem}{Theorem}",
+        "",
+        "% --- Figures ---",
         "\\usepackage{graphicx}",
-        "\\usepackage{microtype}",
         "\\usepackage{float}",
         "\\usepackage{caption}",
         "\\usepackage{wrapfig}",
-        "\\usepackage{soul}",
-        "\\usepackage{cancel}",
-        "\\usepackage{bbold}",
-        "\\usepackage{slashed}",
-        "\\usepackage{tikz}",
-        "\\usetikzlibrary{decorations.pathmorphing}",
-        "\\usepackage{braket}",
-        "\\usepackage{fancyhdr}",
-        "\\setlength{\\headheight}{14pt}",
-        "\\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}",
-        "\\usepackage{xurl}",
-        "\\usetikzlibrary{calc,intersections,arrows.meta}",
-        "\\usepackage{pgfplots}",
-        "\\usepgfplotslibrary{fillbetween}",
-        "\\pgfplotsset{compat=1.18}",
         "\\usepackage{import}",
         "\\usepackage{xifthen}",
         "\\usepackage{pdfpages}",
         "\\usepackage{transparent}",
-        "\\newcommand{\\incfig}[2][1]{%",
-        "    \\def\\svgwidth{#1\\columnwidth}",
-        "    \\import{./figures/}{#2.pdf_tex}",
-        "}",
+	"\\newcommand{\\incfig}[2][1]{%",
+	"\\edef\\svgwidth{#1\\columnwidth}",
+	"\\import{./figures/}{#2.pdf_tex}",
+	"}", 
         "\\pdfsuppresswarningpagegroup=1",
+        "",
+        "% --- TikZ & PGF ---",
+        "\\usepackage{tikz}",
+        "\\usetikzlibrary{calc, intersections, arrows.meta, decorations.pathmorphing}",
+        "\\usepackage{pgfplots}",
+        "\\usepgfplotslibrary{fillbetween}",
+        "\\pgfplotsset{compat=1.18}",
+        "",
+        "% --- Misc ---",
+        "\\usepackage{soul}",
+        "\\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}",
+        "\\usepackage{xurl}",
         "",
         "\\title{${1:Title}}",
         "\\author{${2:Author}}",
         "\\date{${3:Date}}",
+        "",
         "\\begin{document}",
         "\\maketitle",
         "\\thispagestyle{fancy}",
@@ -53,6 +79,31 @@
         "\\end{document}"
     ],
     "description": "Full LaTeX preamble"
+},	
+"textcolor": {
+    "prefix": "color",
+    "body": [
+        "\\textcolor{${1:red}}{${2}}"
+    ],
+    "description": "Colored text with xcolor"
+},
+  "vcenter incfig inline": {
+    "prefix": "incfig_inline",
+    "body": [
+      "$\\vcenter{\\hbox{\\scriptsize \\incfig[0.5]{${1:}}}}$"
+    ],
+    "description": "Inline math vertically centered incfig"
+  },
+	"Inkscape Figure": {
+    "prefix": "incfig",
+    "body": [
+        "\\begin{figure}[ht]",
+        "\t\\centering",
+        "\t\\incfig[${1:0.5}]{${2:figure_name}}",
+        "\t\\caption{${3:Your caption here}}",
+        "\\end{figure}"
+    ],
+    "description": "Insert Inkscape figure, optional arg is a scale factor (0 to 1)"
 },
 	"Exercise (tcolorbox)": {
     "prefix": "ex",
@@ -184,12 +235,12 @@
 },
 	"Limit": {
     "prefix": "lim",
-    "body": "\\lim_{${1:variable} \\to ${2:value}} ${3:expression}${0}",
+    "body": "\\lim_{${1} \\to ${2}} ${3}${0}",
     "description": "Insert limit with variable approaching value"
 },
 	"Expectation Value": {
-    "prefix": "expval",
-    "body": "\\langle ${1:state1} | ${2:operator} | ${3:state2} \\rangle${0}",
+    "prefix": "expectation_value",
+    "body": "\\langle ${1} | ${2} | ${3} \\rangle${0}",
     "description": "Insert expectation value ⟨state1|operator|state2⟩"
 }, 
 	"Expectation Value (Same State)": {
@@ -229,17 +280,17 @@
 },
 	"Bra-Ket Notation": {
     "prefix": "bra",
-    "body": "\\langle ${1:ψ} |",
+    "body": "\\langle ${1} |",
     "description": "Insert bra notation ⟨ψ|"
 },
 "Ket-Ket Notation": {
     "prefix": "ket",
-    "body": "| ${1:ψ} \\rangle",
+    "body": "| ${1} \\rangle",
     "description": "Insert ket notation |ψ⟩"
 },
-"Inner Notation": {
-    "prefix": "inner",
-    "body": "\\langle ${1:ψ} | ${2:φ} \\rangle",
+"Inner Product Notation": {
+    "prefix": "inner_product",
+    "body": "\\langle ${1} | ${2} \\rangle",
     "description": "Insert bra-ket inner product ⟨ψ|φ⟩"
 },
 	"Another Inner Notation": {
@@ -274,7 +325,7 @@
 },
 	"Math Text": {
     "prefix": "text",
-    "body": "\\text{${1:label}}${0}",
+    "body": "\\text{${1}}${0}",
     "description": "Insert text inside math mode"
 },
 	"Bold": {
@@ -323,10 +374,10 @@
     "description": "Insert inline math mode $ $"
 },
 	"Numbered Equation with Label": {
-    "prefix": "eqlabel",
+    "prefix": "equ",
     "body": [
         "\\begin{equation}",
-        "\t${1:formula} \\label{eq:${2:name}}",
+        "\t${1}",
         "\\end{equation}${0}"
     ],
     "description": "Insert a numbered equation with a reference label"
@@ -347,32 +398,32 @@
     "description": "Insert tilde/proportionality sign"
 },
 	"First Bracket (Parentheses)": {
-    "prefix": "first",
-    "body": "\\left( ${1:content} \\right)${0}",
+    "prefix": "fi",
+    "body": "\\left( ${1} \\right)${0}",
     "description": "Insert scaling parentheses ( )"
 },
 "Second Bracket (Curly)": {
-    "prefix": "second",
-    "body": "\\left\\{ ${1:content} \\right\\}${0}",
+    "prefix": "se",
+    "body": "\\left\\{ ${1:} \\right\\}${0}",
     "description": "Insert scaling curly braces { }"
 },
 "Third Bracket (Square)": {
-    "prefix": "third",
-    "body": "\\left[ ${1:content} \\right]${0}",
+    "prefix": "th",
+    "body": "\\left[ ${1:} \\right]${0}",
     "description": "Insert scaling square brackets [ ]"
 },
 "First Bracket (Parentheses) [No Scaling]": {
-    "prefix": "fir",
+    "prefix": "f",
     "body": "($1)${0}",
     "description": "Standard parentheses ( ) no scaling"
 },
 "Second Bracket (Curly) [No Scaling]": {
-    "prefix": "sec",
-    "body": "\\{$1\\}${0}",
+    "prefix": "s",
+    "body": "{$1}${0}",
     "description": "Standard curly braces { } no scaling"
 },
 "Third Bracket (Square) [No Scaling]": {
-    "prefix": "thir",
+    "prefix": "t",
     "body": "[$1]${0}",
     "description": "Standard square brackets [ ] no scaling"
 },
@@ -387,8 +438,8 @@
     "description": "Insert anti-commutator {A, B}"
 },
     "Equation Reference": {
-    "prefix": "eqr",
-    "body": "Eq.(\\ref{eq:${1:label}})${0}",
+    "prefix": "eq_ref",
+    "body": "Eq.\\eqref{eq:${1:label}}${0}",
     "description": "Insert 'eq. (label)' reference"
 },
 	"Relativistic Energy": {
@@ -408,12 +459,12 @@
 },
 	"Feynman Slash": {
     "prefix": "slash",
-    "body": "\\slashed{${1:p}}${0}",
+    "body": "\\slashed{${1}}${0}",
     "description": "Insert Feynman slash notation"
 },
 	"Math Cal": {
     "prefix": "mca",
-    "body": "\\mathcal{${1:L}}${0}",
+    "body": "\\mathcal{${1}}${0}",
     "description": "Insert mathcal (calligraphic) font"
 }, 
 	"Math Bold": {
@@ -560,7 +611,7 @@
     },
     "Bar Notation": {
     "prefix": "bar",
-    "body": "\\bar{${1:x}}$0",
+    "body": "\\bar{${1}}$0",
     "description": "Insert a bar over a symbol (e.g., \\bar{\\Phi})"
     },
     "Partial Derivative": {
@@ -570,7 +621,7 @@
     },
     "Fraction": {
     "prefix": "frac",
-    "body": "\\frac{${1:a}}{${2:b}}$0",
+    "body": "\\frac{$1}{${2:}}$0",
     "description": "Insert a LaTeX fraction"
     },
     "Tilde": {
@@ -580,12 +631,12 @@
     },
     "URL Link": {
     "prefix": "url",
-    "body": "\\url{${1:https://example.com}}",
+    "body": "\\url{${1}}",
     "description": "Insert a plain URL"
     },
     "Hyperlink": {
     "prefix": "href",
-    "body": "\\href{${1:https://example.com}}{${2:text}}",
+    "body": "\\href{${1}}{${2}}",
     "description": "Insert a hyperlink with custom text"
     },
     "Hyperlink with Footnote": {
@@ -970,7 +1021,7 @@
         "description": "Gather(ed)"
     },
     "Itemize": {
-        "prefix": "item",
+        "prefix": "itemize",
         "body": ["\\\\begin{itemize}", "\t\\item $0", "\\\\end{itemize}"],
         "description": "Itemize"
     },
@@ -1194,4 +1245,3 @@
         "description": "Add a empty page"
     }
 }
-
