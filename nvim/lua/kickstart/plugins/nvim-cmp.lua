@@ -8,7 +8,6 @@ return {
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
       'L3MON4D3/LuaSnip',
-      'onsails/lspkind.nvim',
     },
     config = function()
       local cmp = require 'cmp'
@@ -55,12 +54,6 @@ return {
         },
         window = {
           documentation = cmp.config.window.bordered(),
-        },
-        formatting = {
-          format = require('lspkind').cmp_format {
-            mode = 'symbol_text',
-            maxwidth = 50,
-          },
         },
         experimental = { ghost_text = true },
       }

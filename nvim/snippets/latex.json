@@ -1,92 +1,94 @@
 {
-	"mdframed": {
+	"Preamble": {
+    "prefix": "preamble",
+    "body": [
+      "\\documentclass[11pt,a4paper]{article}",
+      "",
+      "% --- Page layout ---",
+      "\\usepackage[margin=1in]{geometry}",
+      "\\usepackage{microtype}",
+      "\\usepackage{fancyhdr}",
+      "\\setlength{\\headheight}{14pt}",
+      "",
+      "% --- Math ---",
+      "\\usepackage{amsmath, amssymb, amsfonts}",
+      "\\usepackage{amsthm}",
+      "\\usepackage{mathtools}",
+      "\\usepackage{bbold}",
+      "\\usepackage{slashed}",
+      "\\usepackage{braket}",
+      "\\usepackage{cancel}",
+      "",
+      "% --- Theorems ---",
+      "\\newtheorem{theorem}{Theorem}",
+      "",
+      "% --- Figures ---",
+      "\\usepackage{graphicx}",
+      "\\usepackage{float}",
+      "\\usepackage{caption}",
+      "\\usepackage{wrapfig}",
+      "\\usepackage{import}",
+      "\\usepackage{xifthen}",
+      "\\usepackage{pdfpages}",
+      "\\usepackage{transparent}",
+      "\\newcommand{\\incfig}[2][1]{%",
+      "\\edef\\svgwidth{#1\\columnwidth}",
+      "\\import{./figures/}{#2.pdf_tex}",
+      "}",
+      "\\pdfsuppresswarningpagegroup=1",
+      "",
+      "% --- TikZ & PGF ---",
+      "\\usepackage{tikz}",
+      "\\usetikzlibrary{calc, intersections, arrows.meta, decorations.pathmorphing}",
+      "\\usepackage{pgfplots}",
+      "\\usepgfplotslibrary{fillbetween}",
+      "\\pgfplotsset{compat=1.18}",
+      "",
+      "% --- Bibliography ---",
+      "\\usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex}",
+      "\\addbibresource{${4:references.bib}}",
+      "",
+      "% --- Misc ---",
+      "\\usepackage{soul}",
+      "\\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}",
+      "\\usepackage{xurl}",
+      "",
+      "\\title{${1:Title}}",
+      "\\author{${2:Author}}",
+      "\\date{${3:Date}}",
+      "",
+      "\\begin{document}",
+      "\\maketitle",
+      "\\tableofcontents",
+      "\\newpage",
+      "$0",
+      "",
+      "\\printbibliography",
+      "\\end{document}"
+    ],
+    "description": "Full LaTeX preamble"
+  },
+  "mdframed": {
     "prefix": "mdframe",
     "body": [
-        "\\begin{mdframed}",
-        "\t${1}",
-        "\\end{mdframed}"
+      "\\begin{mdframed}",
+      "\t${1}",
+      "\\end{mdframed}"
     ],
     "description": "mdframed environment"
-},
-	"Centered Incfig [Half Scale]": {
+  },
+  "Centered Incfig [Half Scale]": {
     "prefix": "incfig_center",
     "body": "\\begin{center}\n\t$$\\vcenter{\\hbox{\\scriptsize \\incfig[0.5]{$1}}}$$\n\\end{center}${0}",
     "description": "Centered half-scale incfig figure"
-},
-"Preamble": {
-    "prefix": "preamble",
-    "body": [
-        "\\documentclass[11pt,a4paper]{article}",
-        "",
-        "% --- Page layout ---",
-        "\\usepackage[margin=1in]{geometry}",
-        "\\usepackage{microtype}",
-        "\\usepackage{fancyhdr}",
-        "\\setlength{\\headheight}{14pt}",
-        "",
-        "% --- Math ---",
-        "\\usepackage{amsmath, amssymb, amsfonts}",
-        "\\usepackage{amsthm}",
-        "\\usepackage{mathtools}",
-        "\\usepackage{bbold}",
-        "\\usepackage{slashed}",
-        "\\usepackage{braket}",
-        "\\usepackage{cancel}",
-        "",
-        "% --- Theorems ---",
-        "\\newtheorem{theorem}{Theorem}",
-        "",
-        "% --- Figures ---",
-        "\\usepackage{graphicx}",
-        "\\usepackage{float}",
-        "\\usepackage{caption}",
-        "\\usepackage{wrapfig}",
-        "\\usepackage{import}",
-        "\\usepackage{xifthen}",
-        "\\usepackage{pdfpages}",
-        "\\usepackage{transparent}",
-	"\\newcommand{\\incfig}[2][1]{%",
-	"\\edef\\svgwidth{#1\\columnwidth}",
-	"\\import{./figures/}{#2.pdf_tex}",
-	"}", 
-        "\\pdfsuppresswarningpagegroup=1",
-        "",
-        "% --- TikZ & PGF ---",
-        "\\usepackage{tikz}",
-        "\\usetikzlibrary{calc, intersections, arrows.meta, decorations.pathmorphing}",
-        "\\usepackage{pgfplots}",
-        "\\usepgfplotslibrary{fillbetween}",
-        "\\pgfplotsset{compat=1.18}",
-        "",
-        "% --- Misc ---",
-        "\\usepackage{soul}",
-        "\\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}",
-        "\\usepackage{xurl}",
-        "",
-        "\\title{${1:Title}}",
-        "\\author{${2:Author}}",
-        "\\date{${3:Date}}",
-        "",
-        "\\begin{document}",
-        "\\maketitle",
-        "\\thispagestyle{fancy}",
-        "\\fancyhf{}",
-        "\\fancyhead[R]{Md. Mezbah Uddin}",
-        "\\renewcommand{\\headrulewidth}{0pt}",
-        "\\tableofcontents",
-        "\\newpage",
-        "$0",
-        "\\end{document}"
-    ],
-    "description": "Full LaTeX preamble"
-},	
-"textcolor": {
+  },
+  "Textcolor": {
     "prefix": "color",
     "body": [
-        "\\textcolor{${1:red}}{${2}}"
+      "\\textcolor{${1:red}}{${2}}"
     ],
     "description": "Colored text with xcolor"
-},
+  },
   "vcenter incfig inline": {
     "prefix": "incfig_inline",
     "body": [
@@ -94,1154 +96,1594 @@
     ],
     "description": "Inline math vertically centered incfig"
   },
-	"Inkscape Figure": {
+  "Inkscape Figure": {
     "prefix": "incfig",
     "body": [
-        "\\begin{figure}[ht]",
-        "\t\\centering",
-        "\t\\incfig[${1:0.5}]{${2:figure_name}}",
-        "\t\\caption{${3:Your caption here}}",
-        "\\end{figure}"
+      "\\begin{figure}[ht]",
+      "\t\\centering",
+      "\t\\incfig[${1:0.5}]{${2:figure_name}}",
+      "\t\\caption{${3:Your caption here}}",
+      "\\end{figure}"
     ],
     "description": "Insert Inkscape figure, optional arg is a scale factor (0 to 1)"
-},
-	"Exercise (tcolorbox)": {
+  },
+  "Exercise (tcolorbox)": {
     "prefix": "ex",
     "body": [
-        "\\begin{exercise}{${1}}{${2:label}}",
-        "\t${3:Exercise content here...}",
-        "\\end{exercise}"
+      "\\begin{exercise}{${1}}{${2:label}}",
+      "\t${3:Exercise content here...}",
+      "\\end{exercise}"
     ],
     "description": "Insert tcolorbox exercise environment"
-},
-	"Exercise Reference": {
+  },
+  "Exercise Reference": {
     "prefix": "exref",
     "body": "\\ref{ex:${1:label}}",
     "description": "Reference an exercise by its label"
-},
-	"Unnumbered align": {
-    "prefix": "al",
-    "body": "\\begin{align*}\n\t$1\n\\end{align*}",
-    "description": "Insert unnumbered align environment"
-},
-"Unnumbered equation": {
-    "prefix": "eq",
-    "body": "\\[\n\t$1\n\\]",
-    "description": "Insert unnumbered equation"
-},
-	"LaTeX environment": {
+  },
+  "LaTeX environment": {
     "prefix": "env",
     "body": [
-        "\\begin{$1}",
-        "\t$0",
-        "\\end{$1}"
+      "\\begin{$1}",
+      "\t$0",
+      "\\end{$1}"
     ],
-    "description": "LaTeX environment with mirrored name"
-},
-	"Implies symbol": {
-    "prefix": "implies",
-    "body": "\\implies",
-    "description": "Implies symbol (⟹)"
-},
-	"Doteq symbol": {
-    "prefix": "doteq",
-    "body": "\\doteq",
-    "description": "Dot over equals symbol (≐)"
-},
-	"Reference": {
+    "description": "Generic LaTeX environment with mirrored name"
+  },
+  "Reference": {
     "prefix": "ref",
     "body": "\\ref{${1}}${0}",
     "description": "Insert reference"
-},
-"Scri": {
-    "prefix": "scr",
-    "body": "\\mathscr{${1}}${0}",
-    "description": "Insert mathscr"
-}, 
-	"2x2 Matrix": {
+  },
+  "2x2 Matrix": {
     "prefix": "mat2",
-    "body": "\\begin{pmatrix}\n${1:a} & ${2:b} \\\\\\\\\n${3:c} & ${4:d}\n\\end{pmatrix}${0}",
+    "body": "\\begin{pmatrix}\n${1:a} & ${2:b} \\\\\n${3:c} & ${4:d}\n\\end{pmatrix}${0}",
     "description": "Insert 2x2 matrix"
-},
-	"Dot Above": {
-    "prefix": "dot",
-    "body": "\\dot{${1:letter}}${0}",
-    "description": "Insert dot above letter"
-},
-"Double Dot": {
-    "prefix": "ddot",
-    "body": "\\ddot{${1:letter}}${0}",
-    "description": "Insert double dot above letter"
-},
-	"Quad Space": {
-    "prefix": "space",
+  },
+  "Matrix (generic)": {
+    "prefix": "mat",
+    "body": [
+      "\\begin{${1:p}matrix}",
+      "\t$0",
+      "\\end{${1:p}matrix}"
+    ],
+    "description": "Matrix environment — replace 'p' with b/v/V/B/small as needed"
+  },
+  "Quad Space": {
+    "prefix": "quad",
     "body": "\\quad${0}",
     "description": "Insert quad space in math mode"
-},
-	"Belongs To": {
-    "prefix": "in",
-    "body": "\\in${0}",
-    "description": "Insert belongs to symbol ∈"
-},
-	"Theorem Environment": {
+  },
+  "Theorem Environment": {
     "prefix": "thm",
     "body": "\\begin{theorem}[${1:title}]\n\t${2:statement}\n\\end{theorem}${0}",
     "description": "Insert theorem environment"
-},
-	"Plus Minus": {
-    "prefix": "pm",
-    "body": "\\pm${0}",
-    "description": "Insert plus minus symbol ±"
-}, 
-	"Nabla": {
-    "prefix": "nab",
-    "body": "\\nabla${0}",
-    "description": "Insert nabla symbol"
-},
-	"Bold Symbol": {
-    "prefix": "boldsymbol",
-    "body": "\\boldsymbol{${1:symbol}}${0}",
-    "description": "Insert bold math symbol using boldsymbol"
-},
-	"Bold Nabla": {
-    "prefix": "nabla",
+  },
+  "Bold Nabla": {
+    "prefix": "bnabla",
     "body": "\\boldsymbol{\\nabla}${0}",
     "description": "Insert boldface nabla symbol"
-},
-	"Underset with Two Conditions": {
+  },
+  "Underset with Two Conditions": {
     "prefix": "us2",
-    "body": "\\underset{\\substack{\\scriptstyle ${1:condition1}\\\\ \\scriptstyle ${2:condition2}}}{${3:expression}}${0}",
-    "description": "Insert underset with two scriptstyle conditions using substack"
-},
-"Underset with One Condition": {
+    "body": "\\underset{\\substack{\\scriptstyle ${1:cond1}\\\\ \\scriptstyle ${2:cond2}}}{${3:expr}}${0}",
+    "description": "Underset with two scriptstyle conditions"
+  },
+  "Underset with One Condition": {
     "prefix": "us1",
-    "body": "\\underset{\\substack{\\scriptstyle ${1:condition}}}{${2:expression}}${0}",
-    "description": "Insert underset with one scriptstyle condition using substack"
-},
-	"Plus Sign": {
-    "prefix": "p",
-    "body": "+${0}",
-    "description": "Insert plus sign +"
-},
-"Minus Sign": {
-    "prefix": "m",
-    "body": "-${0}",
-    "description": "Insert minus sign -"
-},
-"Equal Sign": {
-    "prefix": "e",
-    "body": "=${0}",
-    "description": "Insert equal sign ="
-},
-	"Limit": {
-    "prefix": "lim",
-    "body": "\\lim_{${1} \\to ${2}} ${3}${0}",
-    "description": "Insert limit with variable approaching value"
-},
-	"Expectation Value": {
-    "prefix": "expectation_value",
-    "body": "\\langle ${1} | ${2} | ${3} \\rangle${0}",
-    "description": "Insert expectation value ⟨state1|operator|state2⟩"
-}, 
-	"Expectation Value (Same State)": {
-    "prefix": "expvals",
-    "body": "\\langle ${1:state} | ${2:operator} | ${1:state} \\rangle${0}",
-    "description": "Insert expectation value ⟨state|operator|state⟩ with same state"
-},
-	"Underbrace": {
+    "body": "\\underset{\\scriptstyle ${1:cond}}{${2:expr}}${0}",
+    "description": "Underset with one scriptstyle condition"
+  },
+  "Underbrace": {
     "prefix": "under",
-    "body": "\\underbrace{${1:expression}}_{${2:label}}${0}",
-    "description": "Insert underbrace with expression and label"
-},
-	"Overset": {
+    "body": "\\underbrace{${1:expr}}_{${2:label}}${0}",
+    "description": "Insert underbrace with label"
+  },
+  "Overset": {
     "prefix": "overset",
     "body": "\\overset{${1:above}}{${2:main}}${0}",
-    "description": "Insert overset with content above the main expression"
-},
-"Underset": {
-    "prefix": "underset",
+    "description": "Insert overset"
+  },
+  "Underset": {
+    "prefix": "undset",
     "body": "\\underset{${1:below}}{${2:main}}${0}",
-    "description": "Insert underset with content below the main expression"
-},
-	"First Order Derivative": {
-    "prefix": "d1",
-    "body": "\\frac{d ${1:y}}{d ${2:x}}${0}",
-    "description": "Insert first order derivative dy/dx"
-}, 
-	"Second Order Derivative": {
+    "description": "Insert underset"
+  },
+  "Second Order Derivative": {
     "prefix": "d2",
-    "body": "\\frac{d^{2}${1:y}}{d ${2:x}^{2}}${0}",
-    "description": "Insert second order derivative d²y/dx²"
-},
-	"Third Order Derivative": {
+    "body": "\\frac{d^{2} ${1:y}}{d ${2:x}^{2}}${0}",
+    "description": "Second derivative d²y/dx²"
+  },
+  "Third Order Derivative": {
     "prefix": "d3",
     "body": "\\frac{d^{3} ${1:y}}{d ${2:x}^{3}}${0}",
-    "description": "Insert third order derivative d³y/dx³"
-},
-	"Bra-Ket Notation": {
-    "prefix": "bra",
-    "body": "\\langle ${1} |",
-    "description": "Insert bra notation ⟨ψ|"
-},
-"Ket-Ket Notation": {
-    "prefix": "ket",
-    "body": "| ${1} \\rangle",
-    "description": "Insert ket notation |ψ⟩"
-},
-"Inner Product Notation": {
-    "prefix": "inner_product",
-    "body": "\\langle ${1} | ${2} \\rangle",
-    "description": "Insert bra-ket inner product ⟨ψ|φ⟩"
-},
-	"Another Inner Notation": {
-    "prefix": "innercomma",
-    "body": "\\langle ${1:ψ} , ${2:φ} \\rangle",
-    "description": "Insert bra-ket inner product ⟨ψ,φ⟩"
-},
-"Outer Product": {
-    "prefix": "outer",
-    "body": "| ${1:ψ} \\rangle \\langle ${2:φ} |",
-    "description": "Insert outer product |ψ⟩⟨φ|"
-},
-	"Infinity Symbol": {
-    "prefix": "inf",
-    "body": "\\infty${0}",
-    "description": "Insert infinity symbol in math mode"
-},
-	"Double Right Arrow": {
-    "prefix": "Rightarrow",
+    "description": "Third derivative d³y/dx³"
+  },
+  "Inner Product (comma notation)": {
+    "prefix": "ipc",
+    "body": "\\langle ${1:\\psi} , ${2:\\phi} \\rangle${0}",
+    "description": "Inner product ⟨ψ,φ⟩"
+  },
+  "Outer Product": {
+    "prefix": "oprod",
+    "body": "| ${1:\\psi} \\rangle \\langle ${2:\\phi} |${0}",
+    "description": "Outer product |ψ⟩⟨φ|"
+  },
+  "Double Right Arrow": {
+    "prefix": "Rarr",
     "body": "\\Rightarrow${0}",
-    "description": "Insert double right arrow in math mode"
-},
-	"Right Arrow": {
-    "prefix": "rightarrow",
-    "body": "\\rightarrow${0}",
-    "description": "Insert right arrow in math mode"
-},
-	"Hat Accent": {
-    "prefix": "hat",
-    "body": "\\hat{${1:symbol}}${0}",
-    "description": "Insert hat accent over a symbol in math mode"
-},
-	"Math Text": {
-    "prefix": "text",
+    "description": "Double right arrow ⟹"
+  },
+  "Math Text": {
+    "prefix": "mtext",
     "body": "\\text{${1}}${0}",
-    "description": "Insert text inside math mode"
-},
-	"Bold": {
+    "description": "Text inside math mode"
+  },
+  "Bold Text": {
     "prefix": "bf",
-    "body": "\\textbf{${0}}", 
-    "description": "Insert bold font"
-},
-	"Italic": {
+    "body": "\\textbf{${1}}${0}",
+    "description": "Bold text"
+  },
+  "Italic Text": {
     "prefix": "it",
-    "body": "\\textit{${0}}", 
-    "description": "Insert italic font"
-},
-	"Ellipsis (Dots)": {
+    "body": "\\textit{${1}}${0}",
+    "description": "Italic text"
+  },
+  "Ellipsis": {
     "prefix": "dots",
-    "body": "\\dots ${0}",
-    "description": "Insert centered ellipsis (...)"
-},
-	"Big O Notation": {
-    "prefix": "bo",
-    "body": "\\mathcal{O}(${1:x^2})${0}",
-    "description": "Insert Big O notation O(x^2)"
-},
-	"Much Less Than": {
-    "prefix": "ll",
-    "body": "\\ll ${0}",
-    "description": "Insert much less than symbol \\ll"
-},
-        "Much Greater Than": {
-    "prefix": "gg",
-    "body": "\\gg ${0}",
-    "description": "Insert much greater than symbol \\gg"
-},
-	"Approximation": {
-    "prefix": "appr",
-    "body": "\\approx ${0}",
-    "description": "Insert approximation symbol \\approx"
-},
-	"Congruence": {
-    "prefix": "congru",
-    "body": "\\cong ${0}",
-    "description": "Insert congruence symbol \\cong"
-},
-	"Inline Math": {
-    "prefix": "i",
-    "body": "\\$$1\\$${0}",
-    "description": "Insert inline math mode $ $"
-},
-	"Numbered Equation with Label": {
-    "prefix": "equ",
-    "body": [
-        "\\begin{equation}",
-        "\t${1}",
-        "\\end{equation}${0}"
-    ],
-    "description": "Insert a numbered equation with a reference label"
-},
-	"Label Equation": {
-    "prefix": "lab",
-    "body": "\\label{eq:${1:name}}${0}",
-    "description": "Insert an equation label with eq: prefix"
-},
-	"Order of Magnitude": {
+    "body": "\\dots${0}",
+    "description": "Ellipsis \\dots"
+  },
+  "Big O / Order of Magnitude": {
     "prefix": "ord",
-    "body": "\\mathcal{O}(${1:y^4})${0}",
-    "description": "Insert Big-O notation using mathcal"
-},
-	"Sim": {
-    "prefix": "sim",
-    "body": "\\sim ${0}",
-    "description": "Insert tilde/proportionality sign"
-},
-	"First Bracket (Parentheses)": {
-    "prefix": "fi",
-    "body": "\\left( ${1} \\right)${0}",
-    "description": "Insert scaling parentheses ( )"
-},
-"Second Bracket (Curly)": {
-    "prefix": "se",
-    "body": "\\left\\{ ${1:} \\right\\}${0}",
-    "description": "Insert scaling curly braces { }"
-},
-"Third Bracket (Square)": {
-    "prefix": "th",
-    "body": "\\left[ ${1:} \\right]${0}",
-    "description": "Insert scaling square brackets [ ]"
-},
-"First Bracket (Parentheses) [No Scaling]": {
-    "prefix": "f",
-    "body": "($1)${0}",
-    "description": "Standard parentheses ( ) no scaling"
-},
-"Second Bracket (Curly) [No Scaling]": {
-    "prefix": "s",
-    "body": "{$1}${0}",
-    "description": "Standard curly braces { } no scaling"
-},
-"Third Bracket (Square) [No Scaling]": {
-    "prefix": "t",
-    "body": "[$1]${0}",
-    "description": "Standard square brackets [ ] no scaling"
-},
-	"Commutator": {
-    "prefix": "comm",
-    "body": "[ ${1:A}, ${2:B} ]${0}",
-    "description": "Insert commutator [A, B]"
-},
-"Anti-commutator": {
-    "prefix": "acomm",
-    "body": "\\{ ${1:A}, ${2:B} \\}${0}",
-    "description": "Insert anti-commutator {A, B}"
-},
-    "Equation Reference": {
-    "prefix": "eq_ref",
-    "body": "Eq.\\eqref{eq:${1:label}}${0}",
-    "description": "Insert 'eq. (label)' reference"
-},
-	"Relativistic Energy": {
+    "body": "\\mathcal{O}(${1:n^2})${0}",
+    "description": "Big-O / order of magnitude"
+  },
+  "Math Bold": {
+    "prefix": "mbo",
+    "body": "\\mathbf{${1:v}}${0}",
+    "description": "Bold math font \\mathbf"
+  },
+  "Congruence": {
+    "prefix": "cong",
+    "body": "\\cong${0}",
+    "description": "Congruence ≅"
+  },
+  "Inline Math": {
+    "prefix": "im",
+    "body": "\\$${1}\\$${0}",
+    "description": "Inline math $ $"
+  },
+  "Display Math": {
+    "prefix": "dm",
+    "body": "\\[\n\t${1}\n\\]${0}",
+    "description": "Display math \\[ \\]"
+  },
+  "Partial Derivative": {
+    "prefix": "pd",
+    "body": "\\frac{\\partial ${1:f}}{\\partial ${2:x}}${0}",
+    "description": "Partial derivative ∂f/∂x"
+  },
+  "First Order Total Derivative": {
+    "prefix": "d1",
+    "body": "\\frac{d ${1:y}}{d ${2:x}}${0}",
+    "description": "First total derivative"
+  },
+  "Relativistic Energy": {
     "prefix": "enp",
     "body": "\\sqrt{\\mathbf{${1:p}}^2 + ${2:m}^2}${0}",
-    "description": "Insert relativistic energy square root"
-},
-	"Square Root": {
-    "prefix": "sqrt",
-    "body": "\\sqrt{${1:x}}${0}",
-    "description": "Insert square root"
-},
-"N-th Root": {
-    "prefix": "nrt",
-    "body": "\\sqrt[${1:n}]{${2:x}}${0}",
-    "description": "Insert n-th root"
-},
-	"Feynman Slash": {
-    "prefix": "slash",
-    "body": "\\slashed{${1}}${0}",
-    "description": "Insert Feynman slash notation"
-},
-	"Math Cal": {
-    "prefix": "mca",
-    "body": "\\mathcal{${1}}${0}",
-    "description": "Insert mathcal (calligraphic) font"
-}, 
-	"Math Bold": {
-    "prefix": "mbo",
-    "body": "\\mathbf{${1:p}}${0}",
-    "description": "Insert mathbf (bold) font"
-},
-	"Quadruple Integral": {
-    "prefix": "int4",
-    "body": "\\iiiint_{${1:V}} ${2:f}(${3:x}) \\, d^4${3:x} ${0}",
-    "description": "Insert explicit quadruple integral"
-},
-	"4D Momentum Integral": {
-    "prefix": "d4p",
-    "body": "\\int \\frac{d^4 ${1:p}}{(2 \\pi)^4} ${0}",
-    "description": "Insert 4D momentum space integral measure"
-},
-	"Momentum Space Integral": {
-    "prefix": "d3p",
-    "body": "\\int \\frac{d^3 ${1:p}}{(2 \\pi)^3} ${0}",
-    "description": "Insert 3D momentum space integral measure"
-},
-	"Partial derivative": {
-    "prefix": "pa",
-    "body": "\\partial",
-    "description": "Insert partial derivative symbol"
-},
-	"Figure centered": {
-    "prefix": "fig",
-    "body": [
-        "\\begin{figure}[H]",
-        "\t\\centering",
-        "\t\\includegraphics[width=${1:width}\\textwidth]{${2:filename}}",
-        "\t\\caption{${3:caption}}",
-        "\t\\label{fig:${4:label}}",
-        "\\end{figure}"
-    ],
-    "description": "Insert a centered figure with caption and label"
-},
-	"Sine": {
-    "prefix": "sinn",
-    "body": "\\sin",
-    "description": "Insert sine"
-},
-"Cosine": {
-    "prefix": "coss",
-    "body": "\\cos",
-    "description": "Insert cosine"
-},
-"Tangent": {
-    "prefix": "tann",
-    "body": "\\tan",
-    "description": "Insert tangent"
-},
-"Cosecant": {
-    "prefix": "cscc",
-    "body": "\\csc",
-    "description": "Insert cosecant"
-},
-"Secant": {
-    "prefix": "secc",
-    "body": "\\sec",
-    "description": "Insert secant"
-},
-"Cotangent": {
-    "prefix": "cott",
-    "body": "\\cot",
-    "description": "Insert cotangent"
-},
-"Hyperbolic Sine": {
-    "prefix": "sinh",
-    "body": "\\sinh",
-    "description": "Insert hyperbolic sine"
-},
-"Hyperbolic Cosine": {
-    "prefix": "cosh",
-    "body": "\\cosh",
-    "description": "Insert hyperbolic cosine"
-},
-"Hyperbolic Tangent": {
-    "prefix": "tanh",
-    "body": "\\tanh",
-    "description": "Insert hyperbolic tangent"
-},
-"Hyperbolic Cosecant": {
-    "prefix": "csch",
-    "body": "\\text{csch}",
-    "description": "Insert hyperbolic cosecant"
-},
-"Hyperbolic Secant": {
-    "prefix": "sech",
-    "body": "\\text{sech}",
-    "description": "Insert hyperbolic secant"
-},
-"Hyperbolic Cotangent": {
-    "prefix": "coth",
-    "body": "\\coth",
-    "description": "Insert hyperbolic cotangent"
-},
-    "Summation": {
-    "prefix": "summ",
-    "body": "\\sum_{${1:n}=${2:-\\infty}}^{${3:\\infty}}",
-    "description": "Insert a summation with limits"
-},
-    "Horizontal Rule": {
+    "description": "Relativistic energy √(p²+m²)"
+  },
+  "Varpi": {
+    "prefix": "varpi",
+    "body": "\\varpi${0}",
+    "description": "Variant pi ϖ"
+  },
+  "Horizontal Rule": {
     "prefix": "hrule",
     "body": "\\bigskip\n\\hrule\n\\bigskip",
-    "description": "Insert a horizontal rule with vertical spacing"
-},
-	"Integral (infinite)": {
-    "prefix": "intf",
-    "body": "\\int_{${1:-\\infty}}^{${2:+\\infty}} $3 \\, d$4",
-    "description": "Insert integral from -infinity to +infinity"
-}, 
-	"Integral": {
-    "prefix": "int",
-    "body": "\\int_{$1}^{$2} $3 \\, d$4",
-    "description": "Insert integral"
-},
-"Definite Integral": {
-    "prefix": "dint",
-    "body": "\\int_{${1:a}}^{${2:b}} ${3:f(x)} \\, d${4:x}",
-    "description": "Insert definite integral with placeholders"
-},
-"Double Integral": {
-    "prefix": "iint",
-    "body": "\\iint_{${1:D}} ${2:f(x,y)} \\, d${3:A}",
-    "description": "Insert double integral"
-},
-"Triple Integral": {
-    "prefix": "iiint",
-    "body": "\\iiint_{${1:V}} ${2:f(x,y,z)} \\, d${3:V}",
-    "description": "Insert triple integral"
-},
-"Contour Integral": {
-    "prefix": "oint",
-    "body": "\\oint_{${1:C}} ${2:f(z)} \\, d${3:z}",
-    "description": "Insert contour integral"
-},
-    "varphi": {
-    "prefix": "varphi",
-    "body": "\\varphi",
-    "description": "Insert varphi"
-    },
-    "Bar Notation": {
-    "prefix": "bar",
-    "body": "\\bar{${1}}$0",
-    "description": "Insert a bar over a symbol (e.g., \\bar{\\Phi})"
-    },
-    "Partial Derivative": {
-    "prefix": "pdiff",
-    "body": "\\frac{\\partial ${1:f}}{\\partial ${2:x}}$0",
-    "description": "Insert a partial derivative"
-    },
-    "Fraction": {
-    "prefix": "frac",
-    "body": "\\frac{$1}{${2:}}$0",
-    "description": "Insert a LaTeX fraction"
-    },
-    "Tilde": {
-    "prefix": "tilde",
-    "body": "\\tilde{${1:x}}",
-    "description": "Insert tilde accent"
-    },
-    "URL Link": {
+    "description": "Horizontal rule with vertical spacing"
+  },
+  "Figure": {
+    "prefix": "fig",
+    "body": [
+      "\\begin{figure}[H]",
+      "\t\\centering",
+      "\t\\includegraphics[width=${1:0.8}\\textwidth]{${2:filename}}",
+      "\t\\caption{${3:caption}}",
+      "\t\\label{fig:${4:label}}",
+      "\\end{figure}${0}"
+    ],
+    "description": "Centered figure with caption and label"
+  },
+  "Section": {
+    "prefix": "sec",
+    "body": [
+      "\\section{${1:Title}}",
+      "${0}"
+    ],
+    "description": "Section"
+  },
+  "Subsection": {
+    "prefix": "ssec",
+    "body": [
+      "\\subsection{${1:Title}}",
+      "${0}"
+    ],
+    "description": "Subsection"
+  },
+  "Subsubsection": {
+    "prefix": "sssec",
+    "body": [
+      "\\subsubsection{${1:Title}}",
+      "${0}"
+    ],
+    "description": "Subsubsection"
+  },
+  "Chapter": {
+    "prefix": "cha",
+    "body": [
+      "\\chapter{${1:Title}}",
+      "${0}"
+    ],
+    "description": "Chapter"
+  },
+  "Paragraph heading": {
+    "prefix": "par",
+    "body": [
+      "\\paragraph{${1:Title}}",
+      "${0}"
+    ],
+    "description": "Paragraph heading"
+  },
+  "Itemize": {
+    "prefix": "itemize",
+    "body": [
+      "\\begin{itemize}",
+      "\t\\item ${1}",
+      "\\end{itemize}${0}"
+    ],
+    "description": "Itemize list"
+  },
+  "Enumerate": {
+    "prefix": "enumerate",
+    "body": [
+      "\\begin{enumerate}",
+      "\t\\item ${1}",
+      "\\end{enumerate}${0}"
+    ],
+    "description": "Enumerated list"
+  },
+  "Description": {
+    "prefix": "desc",
+    "body": [
+      "\\begin{description}",
+      "\t\\item[${1:term}] ${2}",
+      "\\end{description}${0}"
+    ],
+    "description": "Description list"
+  },
+  "Tabular": {
+    "prefix": "tab",
+    "body": [
+      "\\begin{tabular}{${1:ll}}",
+      "\t\\hline",
+      "\t${2:Col1} & ${3:Col2} \\\\",
+      "\t\\hline",
+      "\t${0}",
+      "\t\\hline",
+      "\\end{tabular}"
+    ],
+    "description": "Simple tabular environment"
+  },
+  "Table (float)": {
+    "prefix": "table",
+    "body": [
+      "\\begin{table}[H]",
+      "\t\\centering",
+      "\t\\caption{${1:caption}}",
+      "\t\\label{tab:${2:label}}",
+      "\t\\begin{tabular}{${3:ll}}",
+      "\t\t\\hline",
+      "\t\t${4:Col1} & ${5:Col2} \\\\",
+      "\t\t\\hline",
+      "\t\t${0}",
+      "\t\t\\hline",
+      "\t\\end{tabular}",
+      "\\end{table}"
+    ],
+    "description": "Table float with tabular inside"
+  },
+  "Proof": {
+    "prefix": "proof",
+    "body": [
+      "\\begin{proof}",
+      "\t${1}",
+      "\\end{proof}${0}"
+    ],
+    "description": "Proof environment"
+  },
+  "Definition": {
+    "prefix": "defn",
+    "body": [
+      "\\begin{definition}",
+      "\t${1}",
+      "\\end{definition}${0}"
+    ],
+    "description": "Definition environment"
+  },
+  "Block Quote": {
+    "prefix": "bquote",
+    "body": [
+      "\\begin{quote}",
+      "\t${1}",
+      "\\end{quote}${0}"
+    ],
+    "description": "Block quote environment"
+  },
+  "Inline Quote": {
+    "prefix": "iquote",
+    "body": "``${1}''${0}",
+    "description": "Inline LaTeX-style double quotes"
+  },
+  "URL Link": {
     "prefix": "url",
-    "body": "\\url{${1}}",
-    "description": "Insert a plain URL"
-    },
-    "Hyperlink": {
+    "body": "\\url{${1}}${0}",
+    "description": "Plain URL"
+  },
+  "Hyperlink": {
     "prefix": "href",
-    "body": "\\href{${1}}{${2}}",
-    "description": "Insert a hyperlink with custom text"
-    },
-    "Hyperlink with Footnote": {
+    "body": "\\href{${1:https://}}{${2:text}}${0}",
+    "description": "Hyperlink with custom text"
+  },
+  "Hyperlink with Footnote": {
     "prefix": "hreffoot",
-    "body": "\\href{${1:https://example.com}}{${2:text}}\\footnote{\\url{${1:https://example.com}}}",
+    "body": "\\href{${1:https://}}{${2:text}}\\footnote{\\url{${1}}}${0}",
     "description": "Hyperlink with URL repeated in footnote"
-    },
-    "Named Hyperref Label": {
+  },
+  "Internal Hyperref": {
     "prefix": "hyperref",
-    "body": "\\hyperref[${1:label}]{${2:text}}",
+    "body": "\\hyperref[${1:label}]{${2:text}}${0}",
     "description": "Link to an internal label"
-    },
-    "Mailto Link": {
-        "prefix": "mailto",
-        "body": "\\href{mailto:$1}{$2}",
-        "description": "Insert an email mailto link"
-    }, 
-    "Block Quote": {
-        "prefix": "bquote",
-        "body": "\\begin{quote}\n\t$1\n\\end{quote}",
-        "description": "Insert a block quote environment"
-    }, 
-    "Inline Quote": {
-        "prefix": "iquote",
-        "body": "``$1''",
-        "description": "Inline quote using LaTeX style double quotes"
-    },
-
-  "alpha": {
-    "prefix": "alpha",
-    "body": ["\\\\alpha"],
-    "description": "Insert Greek letter alpha"
   },
-  "beta": {
-    "prefix": "beta",
-    "body": ["\\\\beta"],
-    "description": "Insert Greek letter beta"
+  "Mailto Link": {
+    "prefix": "mailto",
+    "body": "\\href{mailto:${1}}{${2}}${0}",
+    "description": "Email mailto link"
   },
-  "gamma": {
-    "prefix": "gamma",
-    "body": ["\\\\gamma"],
-    "description": "Insert Greek letter gamma"
+  "Cite": {
+    "prefix": "cite",
+    "body": "\\cite{${1}}${0}",
+    "description": "Citation"
   },
-  "delta": {
-    "prefix": "delta",
-    "body": ["\\\\delta"],
-    "description": "Insert Greek letter delta"
+  "Figure Ref": {
+    "prefix": "figref",
+    "body": "Fig.~\\ref{fig:${1:label}}${0}",
+    "description": "Figure reference"
   },
-  "epsilon": {
-    "prefix": "epsilon",
-    "body": ["\\\\epsilon"],
-    "description": "Insert Greek letter epsilon"
+  "Table Ref": {
+    "prefix": "tabref",
+    "body": "Table~\\ref{tab:${1:label}}${0}",
+    "description": "Table reference"
+  },
+  "Sine": {
+    "prefix": "sinn",
+    "body": "\\sin${0}",
+    "description": "Sine"
+  },
+  "Cosine": {
+    "prefix": "coss",
+    "body": "\\cos${0}",
+    "description": "Cosine"
+  },
+  "Tangent": {
+    "prefix": "tann",
+    "body": "\\tan${0}",
+    "description": "Tangent"
+  },
+  "Cosecant": {
+    "prefix": "cscc",
+    "body": "\\csc${0}",
+    "description": "Cosecant"
+  },
+  "Secant": {
+    "prefix": "secc",
+    "body": "\\sec${0}",
+    "description": "Secant"
+  },
+  "Cotangent": {
+    "prefix": "cott",
+    "body": "\\cot${0}",
+    "description": "Cotangent"
+  },
+  "Hyperbolic Sine": {
+    "prefix": "sinh",
+    "body": "\\sinh${0}",
+    "description": "Hyperbolic sine"
+  },
+  "Hyperbolic Cosine": {
+    "prefix": "cosh",
+    "body": "\\cosh${0}",
+    "description": "Hyperbolic cosine"
+  },
+  "Hyperbolic Tangent": {
+    "prefix": "tanh",
+    "body": "\\tanh${0}",
+    "description": "Hyperbolic tangent"
+  },
+  "Hyperbolic Cosecant": {
+    "prefix": "csch",
+    "body": "\\operatorname{csch}${0}",
+    "description": "Hyperbolic cosecant"
+  },
+  "Hyperbolic Secant": {
+    "prefix": "sech",
+    "body": "\\operatorname{sech}${0}",
+    "description": "Hyperbolic secant"
+  },
+  "Hyperbolic Cotangent": {
+    "prefix": "coth",
+    "body": "\\coth${0}",
+    "description": "Hyperbolic cotangent"
   },
   "zeta": {
     "prefix": "zeta",
-    "body": ["\\\\zeta"],
-    "description": "Insert Greek letter zeta"
+    "body": "\\zeta${0}",
+    "description": "ζ"
   },
-  "eta": {
-    "prefix": "eta",
-    "body": ["\\\\eta"],
-    "description": "Insert Greek letter eta"
-  },
-  "theta": {
-    "prefix": "theta",
-    "body": ["\\\\theta"],
-    "description": "Insert Greek letter theta"
+  "vartheta": {
+    "prefix": "vartheta",
+    "body": "\\vartheta${0}",
+    "description": "ϑ"
   },
   "iota": {
     "prefix": "iota",
-    "body": ["\\\\iota"],
-    "description": "Insert Greek letter iota"
-  },
-  "kappa": {
-    "prefix": "kappa",
-    "body": ["\\\\kappa"],
-    "description": "Insert Greek letter kappa"
-  },
-  "lambda": {
-    "prefix": "lambda",
-    "body": ["\\\\lambda"],
-    "description": "Insert Greek letter lambda"
-  },
-  "mu": {
-    "prefix": "mu",
-    "body": ["\\\\mu"],
-    "description": "Insert Greek letter mu"
-  },
-  "nu": {
-    "prefix": "nu",
-    "body": ["\\\\nu"],
-    "description": "Insert Greek letter nu"
-  },
-  "xi": {
-    "prefix": "xi",
-    "body": ["\\\\xi"],
-    "description": "Insert Greek letter xi"
-  },
-  "omicron": {
-    "prefix": "omicron",
-    "body": ["o"],
-    "description": "Insert Greek letter omicron (same as 'o')"
-  },
-  "pi": {
-    "prefix": "pi",
-    "body": ["\\\\pi"],
-    "description": "Insert Greek letter pi"
-  },
-  "rho": {
-    "prefix": "rho",
-    "body": ["\\\\rho"],
-    "description": "Insert Greek letter rho"
-  },
-  "sigma": {
-    "prefix": "sigma",
-    "body": ["\\\\sigma"],
-    "description": "Insert Greek letter sigma"
-  },
-  "tau": {
-    "prefix": "tau",
-    "body": ["\\\\tau"],
-    "description": "Insert Greek letter tau"
+    "body": "\\iota${0}",
+    "description": "ι"
   },
   "upsilon": {
     "prefix": "upsilon",
-    "body": ["\\\\upsilon"],
-    "description": "Insert Greek letter upsilon"
-  },
-  "phi": {
-    "prefix": "phi",
-    "body": ["\\\\phi"],
-    "description": "Insert Greek letter phi"
-  },
-  "chi": {
-    "prefix": "chi",
-    "body": ["\\\\chi"],
-    "description": "Insert Greek letter chi"
-  },
-  "psi": {
-    "prefix": "psi",
-    "body": ["\\\\psi"],
-    "description": "Insert Greek letter psi"
-  },
-  "omega": {
-    "prefix": "omega",
-    "body": ["\\\\omega"],
-    "description": "Insert Greek letter omega"
-  },
-
-  "Gamma": {
-    "prefix": "Gamma",
-    "body": ["\\\\Gamma"],
-    "description": "Insert Greek letter Gamma"
-  },
-  "Delta": {
-    "prefix": "Delta",
-    "body": ["\\\\Delta"],
-    "description": "Insert Greek letter Delta"
-  },
-  "Theta": {
-    "prefix": "Theta",
-    "body": ["\\\\Theta"],
-    "description": "Insert Greek letter Theta"
-  },
-  "Lambda": {
-    "prefix": "Lambda",
-    "body": ["\\\\Lambda"],
-    "description": "Insert Greek letter Lambda"
+    "body": "\\upsilon${0}",
+    "description": "υ"
   },
   "Xi": {
     "prefix": "Xi",
-    "body": ["\\\\Xi"],
-    "description": "Insert Greek letter Xi"
-  },
-  "Pi": {
-    "prefix": "Pi",
-    "body": ["\\\\Pi"],
-    "description": "Insert Greek letter Pi"
-  },
-  "Sigma": {
-    "prefix": "Sigma",
-    "body": ["\\\\Sigma"],
-    "description": "Insert Greek letter Sigma"
+    "body": "\\Xi${0}",
+    "description": "Ξ"
   },
   "Upsilon": {
     "prefix": "Upsilon",
-    "body": ["\\\\Upsilon"],
-    "description": "Insert Greek letter Upsilon"
+    "body": "\\Upsilon${0}",
+    "description": "Υ"
   },
-  "Phi": {
-    "prefix": "Phi",
-    "body": ["\\\\Phi"],
-    "description": "Insert Greek letter Phi"
+  "Fraction": {
+    "prefix": "frac",
+    "body": "\\frac{${1}}{${2}}${0}",
+    "description": "Generic fraction"
   },
-  "Psi": {
-    "prefix": "Psi",
-    "body": ["\\\\Psi"],
-    "description": "Insert Greek letter Psi"
+  "Fraction (inline quick)": {
+    "prefix": "fr",
+    "body": "\\frac{${1}}{${2}}${0}",
+    "description": "Fraction shorthand"
   },
-  "Omega": {
-    "prefix": "Omega",
-    "body": ["\\\\Omega"],
-    "description": "Insert Greek letter Omega"
+  "Display Fraction (dfrac)": {
+    "prefix": "dfrac",
+    "body": "\\dfrac{${1}}{${2}}${0}",
+    "description": "Display-size fraction"
   },
-	"Down Index Simple": {
-    "prefix": "l",
-    "body": "_",
-    "description": "Insert subscript (down index)"
-},
-"Upper Index Simple": {
-    "prefix": "u",
-    "body": "^",
-    "description": "Insert superscript (upper index)"
-},
-"Down Index": {
-    "prefix": "lo",
-    "body": "_{${1}}${0}",
-    "description": "Insert subscript (down index)"
-},
-"Upper Index": {
+  "Text Fraction (tfrac)": {
+    "prefix": "tfrac",
+    "body": "\\tfrac{${1}}{${2}}${0}",
+    "description": "Inline-size fraction"
+  },
+  "Square Root": {
+    "prefix": "sqrt",
+    "body": "\\sqrt{${1:x}}${0}",
+    "description": "Square root"
+  },
+  "N-th Root": {
+    "prefix": "nrt",
+    "body": "\\sqrt[${1:n}]{${2:x}}${0}",
+    "description": "N-th root"
+  },
+  "Exponential (e^x)": {
+    "prefix": "expx",
+    "body": "e^{${1:x}}${0}",
+    "description": "e to the power x"
+  },
+  "Exponential (exp(...))": {
+    "prefix": "expo",
+    "body": "\\exp\\!\\left( ${1} \\right)${0}",
+    "description": "\\exp(...) with auto-scaling parens — good for long arguments"
+  },
+  "Exponential (exp large arg)": {
+    "prefix": "expbig",
+    "body": "\\exp\\!\\left[ ${1} \\right]${0}",
+    "description": "\\exp[...] with square brackets — common in QFT path integrals"
+  },
+  "Natural Log": {
+    "prefix": "ln",
+    "body": "\\ln\\!\\left( ${1} \\right)${0}",
+    "description": "Natural log with parens"
+  },
+  "Log base n": {
+    "prefix": "logn",
+    "body": "\\log_{${1:n}}\\!\\left( ${2} \\right)${0}",
+    "description": "Log with explicit base"
+  },
+  "Superscript": {
     "prefix": "up",
     "body": "^{${1}}${0}",
-    "description": "Insert superscript (upper index)"
-},
-"Integral d^3": {
-  "prefix": "intd3",
-  "body": [
-    "\\begin{equation}",
-    "\t\\int \\frac{d^3k}{(2 \\\\pi)^3}",
-    "\\end{equation}"
-  ],
-  "description": "3D momentum integral in equation environment"
-},
-    "Cases": {
-        "prefix": "cas",
-        "body": [
-            "\\begin{cases}",
-            "\t${1:equation}, &\\text{ if }${2:case}\\\\\\\\",
-            "\t$0",
-            "\\end{cases}"
-        ],
-        "description": "Cases"
-    },
-    "Chapter": {
-        "prefix": "cha",
-        "body": [
-            "\\chapter{$1}\\label{chap:${1/([a-zA-Z]+)|([^a-zA-Z]+)/${1:/downcase}${2:+_}/g}} % (fold)",
-            "${0:$TM_SELECTED_TEXT}",
-            "% chapter $1 (end)"
-        ],
-        "description": "Chapter"
-    },
-    "Description": {
-        "prefix": "desc",
-        "body": [
-            "\\\\begin{description}",
-            "\t\\item[$1] $0",
-            "\\\\end{description}"
-        ],
-        "description": "Description"
-    },
-    "Math": {
-        "prefix": "math",
-        "body": ["\\begin{math}", "\t$1", "\\end{math}", "$0"],
-        "description": "Add a Math"
-    },
-    "DisplayMath": {
-        "prefix": "displaymath",
-        "body": ["\\begin{displaymath}", "\t$1", "\\end{displaymath}", "$0"],
-        "description": "Display Math"
-    },
-    "Equation": {
-        "prefix": "equation",
-        "body": [
-            "\\begin{equation}",
-            "\t$0",
-            "\t\\label{eq:$1}",
-            "\\end{equation}"
-        ],
-        "description": "Add a Equation"
-    },
-    "Display Math — \\[ … \\]": {
-        "prefix": "$$",
-        "body": ["\\[", "\t$TM_SELECTED_TEXT$1", "\\]"],
-        "description": "Display Math"
-    },
-    "Theorem": {
-        "prefix": "theorem",
-        "body": [
-            "\\begin{theorem}",
-            "\t$1",
-            "\t\\begin{displaymath}",
-            "\t\t$2",
-            "\t\\end{displaymath}",
-            "\t$3",
-            "\\end{theorem}",
-            "$0"
-        ],
-        "description": "Add a theorem"
-    },
-    "Definition": {
-        "prefix": "definition",
-        "body": [
-            "\\begin{definition}",
-            "\t$1",
-            "\t\\begin{displaymath}",
-            "\t\t$2",
-            "\t\\end{displaymath}",
-            "\t$3",
-            "\\end{definition}",
-            "$0"
-        ],
-        "description": "Add a definition"
-    },
-    "Proof": {
-        "prefix": "proof",
-        "body": [
-            "\\begin{proof}",
-            "\t$1",
-            "\t\\begin{displaymath}",
-            "\t\t$2",
-            "\t\\end{displaymath}",
-            "\t$3",
-            "\\end{proof}",
-            "$0"
-        ],
-        "description": "Add a proof"
-    },
-    "Algorithm": {
-        "prefix": "algo",
-        "body": [
-            "% \\usepackage{algorithm,algorithmicx,algpseudocode}",
-            "\\begin{algorithm}",
-            "\t\\floatname{algorithm}{${1:Algorithm}}",
-            "\t\\algrenewcommand\\algorithmicrequire{\\textbf{${2:Input: }}}",
-            "\t\\algrenewcommand\\algorithmicensure{\\textbf{${3:Output: }}}",
-            "\t\\caption{$4}\\label{alg:$5}",
-            "\t\\begin{algorithmic}[1]",
-            "\t\t\\Require \\$input\\$",
-            "\t\t\\Ensure \\$output\\$",
-            "\t\t$6",
-            "\t\t\\State \\textbf{return} \\$state\\$",
-            "\t\\end{algorithmic}",
-            "\\end{algorithm}",
-            "$0"
-        ],
-        "description": "Add an algorithm"
-    },
-    "Algorithm:State": {
-        "prefix": "state",
-        "body": ["\\State $1"],
-        "desciption": "Add an statement of algorithm"
-    },
-    "Algorithm:If": {
-        "prefix": "if",
-        "body": ["\\If{$1}", "\\ElsIf{$2}", "\\Else", "\\EndIf"],
-        "desciption": "Add an if statement of algorithm"
-    },
-    "Algorithm:For": {
-        "prefix": "for",
-        "body": ["\\For{i=0:$1}", "\t\\State $0", "\\EndFor"],
-        "desciption": "Add an for statement of algorithm"
-    },
-    "Algorithm:While": {
-        "prefix": "while",
-        "body": ["\\While{$1}", "\t\\State $0", "\\EndWhile"],
-        "desciption": "Add an for statement of algorithm"
-    },
-    "Algorithm:Ref": {
-        "prefix": "algo:ref",
-        "body": ["${1:Algorithm}~\\ref{algo:$2}$0"],
-        "desciption": "Ref for Algorithm"
-    },
-    "Figure:Ref": {
-        "prefix": "figure:ref",
-        "body": ["${1:Figure}~\\ref{fig:$2}$0"],
-        "description": "Ref for Figure"
-    },
-    "Gather(ed)": {
-        "prefix": "gat",
-        "body": ["\\begin{gather}", "\t$0", "\\end{gather}"],
-        "description": "Gather(ed)"
-    },
-    "Itemize": {
-        "prefix": "itemize",
-        "body": ["\\\\begin{itemize}", "\t\\item $0", "\\\\end{itemize}"],
-        "description": "Itemize"
-    },
-    "Listing:Ref": {
-        "prefix": "listing:ref",
-        "body": ["${1:Listing}~\\ref{lst:$2}$0"],
-        "description": "Listing"
-    },
-    "Matrix": {
-        "prefix": "mat",
-        "body": [
-            "\\begin{${1:p/b/v/V/B/small}matrix}",
-            "\t$0",
-            "\\end{${1:p/b/v/V/B/small}matrix}"
-        ],
-        "description": "Matrix"
-    },
-    "Page": {
-        "prefix": "page",
-        "body": ["${1:page}~\\pageref{$2}$0"],
-        "description": "Page"
-    },
-    "Paragraph": {
-        "prefix": "par",
-        "body": [
-            "\\paragraph{${1:paragraph name}}\\label{par:${1/([a-zA-Z]+)|([^a-zA-Z]+)/${1:/downcase}${2:+_}/g}} % (fold)",
-            "${0:$TM_SELECTED_TEXT}",
-            "% paragraph $1 (end)"
-        ],
-        "description": "Paragraph"
-    },
-    "Part": {
-        "prefix": "part",
-        "body": [
-            "\\part{${1:part name}}\\label{prt:${1/([a-zA-Z]+)|([^a-zA-Z]+)/${1:/downcase}${2:+_}/g}} % (fold)",
-            "${0:$TM_SELECTED_TEXT}",
-            "% part $1 (end)"
-        ],
-        "description": "Part"
-    },
-    "Region Start": {
-        "prefix": "#region",
-        "body": ["%#Region $0"],
-        "description": "Folding Region Start"
-    },
-    "Region End": {
-        "prefix": "#endregion",
-        "body": ["%#Endregion"],
-        "description": "Folding Region End"
-    }, 
-    "Split": {
-        "prefix": "spl",
-        "body": ["\\begin{split}", "\t$0", "\\end{split}"],
-        "description": "Split"
-    },
-    "Section": {
-    "prefix": "section",
-    "body": [
-        "\\section{$1}",
-        "$0"
-    ],
-    "description": "Section"
-},
-    "Sub Paragraph": {
-        "prefix": "subp",
-        "body": [
-            "\\subparagraph{$1}\\label{subp:${1/([a-zA-Z]+)|([^a-zA-Z]+)/${1:/downcase}${2:+_}/g}} % (fold)",
-            "${0:$TM_SELECTED_TEXT}",
-            "% subparagraph $1 (end)"
-        ],
-        "description": "Sub Paragraph"
-    },
-    "Sub Sub Section": {
-        "prefix": "subs",
-        "body": [
-            "\\subsubsection{${1:subsubsection name}}\\label{sec:${1/([a-zA-Z]+)|([^a-zA-Z]+)/${1:/downcase}${2:+_}/g}} % (fold)",
-            "${0:$TM_SELECTED_TEXT}",
-            "% subsubsection $1 (end)"
-        ],
-        "description": "Sub Sub Section"
-    },
-    "Table:Ref": {
-        "prefix": "table:ref",
-        "body": ["${1:Table}~\\ref{tab:$2}$0"],
-        "description": "Table Reference"
-    },
-    "Tabular": {
-        "prefix": "tab",
-        "body": [
-            "\\\\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}",
-            "$0${2/((?<=[clr])([ |]*(c|l|r)))|./(?1: & )/g}",
-            "\\\\end{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}"
-        ],
-        "description": "Tabular"
-    },
-    "\\begin{}…\\end{}": {
-        "prefix": "begin",
-        "body": [
-            "\\\\begin{${1:env}}",
-            "\t${1/(enumerate|itemize|list)|(description)|(.*)/${1:+\\item }${2:+\\item[] }${3:+}/}$0",
-            "\\\\end{${1:env}}"
-        ],
-        "description": "Begin - End"
-    },
-    "Figure": {
-        "prefix": "figure",
-        "body": [
-            "\\begin{figure}",
-            "\t\\begin{center}",
-            "\t\t\\includegraphics[width=0.95\\textwidth]{figures/$1}",
-            "\t\\end{center}",
-            "\t\\caption{$3}\\label{fig:$4}",
-            "\\end{figure}",
-            "$0"
-        ],
-        "description": "Add a figure"
-    },
-    "Figure:ACM": {
-        "prefix": "figure:acm",
-        "body": [
-            "\\begin{figure}",
-            "\t\\includegraphics[width=0.45\\textwidth]{figures/$1}",
-            "\t\\caption{$2}\\label{fig:$3}",
-            "\\end{figure}",
-            "$0"
-        ],
-        "description": "Add a figure (ACM)"
-    },
-    "Figure:ACM:*": {
-        "prefix": "figure:acm:*",
-        "body": [
-            "\\begin{figure*}",
-            "\t\\includegraphics[width=0.45\\textwidth]{figures/$1}",
-            "\t\\caption{$2}\\label{fig:$3}",
-            "\\end{figure*}",
-            "$0"
-        ],
-        "description": "Add a figure (ACM)"
-    },
-    "Table": {
-        "prefix": "table",
-        "body": [
-            "\\begin{table}",
-            "\t\\caption{$1}\\label{tab:$2}",
-            "\t\\begin{center}",
-            "\t\t\\begin{tabular}[c]{l|l}",
-            "\t\t\t\\hline",
-            "\t\t\t\\multicolumn{1}{c|}{\\textbf{$3}} & ",
-            "\t\t\t\\multicolumn{1}{c}{\\textbf{$4}} \\\\\\\\",
-            "\t\t\t\\hline",
-            "\t\t\ta & b \\\\\\\\",
-            "\t\t\tc & d \\\\\\\\",
-            "\t\t\t$5",
-            "\t\t\t\\hline",
-            "\t\t\\end{tabular}",
-            "\t\\end{center}",
-            "\\end{table}",
-            "$0"
-        ],
-        "description": "Add a table"
-    },
-    "Table:ACM": {
-        "prefix": "table:acm",
-        "body": [
-            "\\begin{table}",
-            "\t\\caption{$1}\\label{tab:$2}",
-            "\t\\begin{tabular}{${3:ccl}}",
-            "\t\t\\toprule",
-            "\t\t$4",
-            "\t\ta & b & c \\\\\\\\",
-            "\t\t\\midrule",
-            "\t\td & e & f \\\\\\\\",
-            "\t\t\\bottomrule",
-            "\t\\end{tabular}",
-            "\\end{table}",
-            "$0"
-        ],
-        "description": "Add a table (ACM)"
-    },
-    "Table:ACM:*": {
-        "prefix": "table:acm:*",
-        "body": [
-            "\\begin{table*}",
-            "\t\\caption{$1}\\label{tab:$2}",
-            "\t\\begin{tabular}{${3:ccl}}",
-            "\t\t\\toprule",
-            "\t\t$4",
-            "\t\ta & b & c \\\\\\\\",
-            "\t\t\\midrule",
-            "\t\td & e & f \\\\\\\\",
-            "\t\t\\bottomrule",
-            "\t\\end{tabular}",
-            "\\end{table*}",
-            "$0"
-        ],
-        "description": "Add a table (ACM)"
-    },
-    "Enumerate": {
-        "prefix": "enumerate",
-        "body": ["\\\\begin{enumerate}", "\t\\item $0", "\\\\end{enumerate}"],
-        "description": "Add a enumerate"
-    },
-    "Compactitem": {
-        "prefix": "compactitem",
-        "body": [
-            "\\begin{compactitem}",
-            "\t\\item $1",
-            "\\end{compactitem}",
-            "$0"
-        ],
-        "description": "Add a compactitem (from package paralist)"
-    },
-    "Cite": {
-        "prefix": "cite",
-        "body": ["\\cite{$1}$0"],
-        "description": "Add a cite"
-    },
-    "EmptyPage": {
-        "prefix": "empty",
-        "body": ["\\null\\thispagestyle{empty}", "\\newpage", "$0"],
-        "description": "Add a empty page"
-    }
+    "description": "Superscript with braces"
+  },
+  "Subscript": {
+    "prefix": "lo",
+    "body": "_{${1}}${0}",
+    "description": "Subscript with braces"
+  },
+  "Superscript + Subscript": {
+    "prefix": "uplo",
+    "body": "^{${1}}_{${2}}${0}",
+    "description": "Both super and subscript"
+  },
+  "Squared": {
+    "prefix": "sq",
+    "body": "^{2}${0}",
+    "description": "Squared"
+  },
+  "Cubed": {
+    "prefix": "cub",
+    "body": "^{3}${0}",
+    "description": "Cubed"
+  },
+  "Inverse": {
+    "prefix": "inv",
+    "body": "^{-1}${0}",
+    "description": "Inverse (^{-1})"
+  },
+  "Dagger": {
+    "prefix": "dag",
+    "body": "^{\\dagger}${0}",
+    "description": "Hermitian conjugate †"
+  },
+  "Star (complex conjugate)": {
+    "prefix": "conj",
+    "body": "^{*}${0}",
+    "description": "Complex conjugate *"
+  },
+  "Transpose": {
+    "prefix": "trans",
+    "body": "^{\\top}${0}",
+    "description": "Transpose ^T"
+  },
+  "Integral (general)": {
+    "prefix": "int",
+    "body": "\\int_{${1}}^{${2}} ${3} \\, d${4}${0}",
+    "description": "General integral with limits"
+  },
+  "Integral (infinite)": {
+    "prefix": "intf",
+    "body": "\\int_{-\\infty}^{+\\infty} ${1} \\, d${2}${0}",
+    "description": "Integral from -∞ to +∞"
+  },
+  "Definite Integral": {
+    "prefix": "dint",
+    "body": "\\int_{${1:a}}^{${2:b}} ${3:f(x)} \\, d${4:x}${0}",
+    "description": "Definite integral a to b"
+  },
+  "Double Integral": {
+    "prefix": "iint",
+    "body": "\\iint_{${1:D}} ${2:f} \\, d${3:A}${0}",
+    "description": "Double integral"
+  },
+  "Triple Integral": {
+    "prefix": "iiint",
+    "body": "\\iiint_{${1:V}} ${2:f} \\, d${3:V}${0}",
+    "description": "Triple integral"
+  },
+  "Contour Integral": {
+    "prefix": "oint",
+    "body": "\\oint_{${1:C}} ${2:f(z)} \\, d${3:z}${0}",
+    "description": "Contour integral"
+  },
+  "Volume Integral d^3x": {
+    "prefix": "intx3",
+    "body": "\\int d^3 ${1:x}\\, ${0}",
+    "description": "3D spatial volume integral"
+  },
+  "Spacetime Integral d^4x": {
+    "prefix": "intx4",
+    "body": "\\int d^4 ${1:x}\\, ${0}",
+    "description": "4D spacetime integral"
+  },
+  "Spacetime Integral with sqrt(-g)": {
+    "prefix": "intg4",
+    "body": "\\int d^4 ${1:x}\\, \\sqrt{-g}\\, ${0}",
+    "description": "Covariant 4D integral with metric determinant"
+  },
+  "Momentum Integral d^3p": {
+    "prefix": "d3p",
+    "body": "\\int \\frac{d^3 ${1:p}}{(2\\pi)^3}\\, ${0}",
+    "description": "3D momentum space measure"
+  },
+  "Momentum Integral d^4p": {
+    "prefix": "d4p",
+    "body": "\\int \\frac{d^4 ${1:p}}{(2\\pi)^4}\\, ${0}",
+    "description": "4D momentum space measure"
+  },
+  "d^n k integral": {
+    "prefix": "dnk",
+    "body": "\\int \\frac{d^{${1:n}} ${2:k}}{(2\\pi)^{${1:n}}}\\, ${0}",
+    "description": "n-dimensional loop momentum integral"
+  },
+  "Euclidean Momentum Integral d^4p_E": {
+    "prefix": "d4pE",
+    "body": "\\int \\frac{d^4 ${1:p}_E}{(2\\pi)^4}\\, ${0}",
+    "description": "Euclidean 4D momentum integral (after Wick rotation)"
+  },
+  "Path Integral (D phi)": {
+    "prefix": "pathint",
+    "body": "\\int \\mathcal{D}${1:\\phi}\\, e^{i S[${1:\\phi}]}\\, ${0}",
+    "description": "Path integral with action in exponent"
+  },
+  "Path Integral (Euclidean)": {
+    "prefix": "pathintE",
+    "body": "\\int \\mathcal{D}${1:\\phi}\\, e^{-S_E[${1:\\phi}]}\\, ${0}",
+    "description": "Euclidean path integral"
+  },
+  "Functional Measure": {
+    "prefix": "Dphi",
+    "body": "\\mathcal{D}${1:\\phi}\\, ${0}",
+    "description": "Functional integration measure D phi"
+  },
+  "Second Partial Derivative": {
+    "prefix": "pd2",
+    "body": "\\frac{\\partial^{2} ${1:f}}{\\partial ${2:x}^{2}}${0}",
+    "description": "Second partial derivative"
+  },
+  "Mixed Partial Derivative": {
+    "prefix": "pdm",
+    "body": "\\frac{\\partial^{2} ${1:f}}{\\partial ${2:x} \\, \\partial ${3:y}}${0}",
+    "description": "Mixed partial derivative ∂²f/∂x∂y"
+  },
+  "Total Derivative": {
+    "prefix": "td",
+    "body": "\\frac{d ${1:f}}{d ${2:x}}${0}",
+    "description": "Total derivative df/dx"
+  },
+  "Second Total Derivative": {
+    "prefix": "td2",
+    "body": "\\frac{d^{2} ${1:f}}{d ${2:x}^{2}}${0}",
+    "description": "Second total derivative"
+  },
+  "Functional Derivative": {
+    "prefix": "fd",
+    "body": "\\frac{\\delta ${1:S}}{\\delta ${2:\\phi(x)}}${0}",
+    "description": "Functional derivative δS/δφ(x)"
+  },
+  "Second Functional Derivative": {
+    "prefix": "fd2",
+    "body": "\\frac{\\delta^{2} ${1:\\Gamma}}{\\delta ${2:\\phi}(${3:x}) \\, \\delta ${2:\\phi}(${4:y})}${0}",
+    "description": "Second functional derivative (as in 1PI two-point function)"
+  },
+  "Covariant Derivative": {
+    "prefix": "covd",
+    "body": "\\nabla_{${1:\\mu}} ${0}",
+    "description": "Covariant derivative ∇_μ"
+  },
+  "Covariant Derivative (upper)": {
+    "prefix": "covdu",
+    "body": "\\nabla^{${1:\\mu}} ${0}",
+    "description": "Covariant derivative with upper index ∇^μ"
+  },
+  "Lie Derivative": {
+    "prefix": "lied",
+    "body": "\\mathcal{L}_{${1:\\xi}} ${0}",
+    "description": "Lie derivative along vector field ξ"
+  },
+  "Double Dot": {
+    "prefix": "ddot",
+    "body": "\\ddot{${1:x}}${0}",
+    "description": "Double dot above"
+  },
+  "d'Alembertian / Box operator": {
+    "prefix": "box",
+    "body": "\\Box ${0}",
+    "description": "d'Alembertian □ = ∂^μ ∂_μ"
+  },
+  "Laplacian": {
+    "prefix": "lap",
+    "body": "\\nabla^2 ${0}",
+    "description": "Laplacian ∇²"
+  },
+  "Gradient": {
+    "prefix": "grad",
+    "body": "\\boldsymbol{\\nabla} ${0}",
+    "description": "Gradient ∇ (bold)"
+  },
+  "Divergence": {
+    "prefix": "divv",
+    "body": "\\boldsymbol{\\nabla} \\cdot ${0}",
+    "description": "Divergence ∇·"
+  },
+  "Curl": {
+    "prefix": "curl",
+    "body": "\\boldsymbol{\\nabla} \\times ${0}",
+    "description": "Curl ∇×"
+  },
+  "Upper Index (Einstein)": {
+    "prefix": "uu",
+    "body": "^{${1:\\mu}}${0}",
+    "description": "Upper (contravariant) tensor index"
+  },
+  "Lower Index (Einstein)": {
+    "prefix": "llidx",
+    "body": "_{${1:\\mu}}${0}",
+    "description": "Lower (covariant) tensor index"
+  },
+  "Upper+Lower (mixed tensor)": {
+    "prefix": "ul",
+    "body": "^{${1:\\mu}}{}_{${2:\\nu}}${0}",
+    "description": "Mixed tensor index ^μ_ν"
+  },
+  "Greek mu": {
+    "prefix": "mu",
+    "body": "\\mu${0}",
+    "description": "μ"
+  },
+  "Greek nu": {
+    "prefix": "nu",
+    "body": "\\nu${0}",
+    "description": "ν"
+  },
+  "Greek rho": {
+    "prefix": "rho",
+    "body": "\\rho${0}",
+    "description": "ρ"
+  },
+  "Greek sigma": {
+    "prefix": "sigma",
+    "body": "\\sigma${0}",
+    "description": "σ"
+  },
+  "Greek alpha": {
+    "prefix": "alpha",
+    "body": "\\alpha${0}",
+    "description": "α"
+  },
+  "Greek beta": {
+    "prefix": "beta",
+    "body": "\\beta${0}",
+    "description": "β"
+  },
+  "Greek gamma": {
+    "prefix": "gamma",
+    "body": "\\gamma${0}",
+    "description": "γ"
+  },
+  "Greek delta": {
+    "prefix": "delta",
+    "body": "\\delta${0}",
+    "description": "δ"
+  },
+  "Greek lambda": {
+    "prefix": "lambda",
+    "body": "\\lambda${0}",
+    "description": "λ"
+  },
+  "Greek kappa": {
+    "prefix": "kappa",
+    "body": "\\kappa${0}",
+    "description": "κ"
+  },
+  "Greek epsilon": {
+    "prefix": "epsilon",
+    "body": "\\epsilon${0}",
+    "description": "ε"
+  },
+  "Greek varepsilon": {
+    "prefix": "varepsilon",
+    "body": "\\varepsilon${0}",
+    "description": "ε (curly)"
+  },
+  "Greek varphi": {
+    "prefix": "varphi",
+    "body": "\\varphi${0}",
+    "description": "φ (curly)"
+  },
+  "Greek phi": {
+    "prefix": "phi",
+    "body": "\\phi${0}",
+    "description": "φ (straight)"
+  },
+  "Greek Phi": {
+    "prefix": "Phi",
+    "body": "\\Phi${0}",
+    "description": "Φ"
+  },
+  "Greek psi": {
+    "prefix": "psi",
+    "body": "\\psi${0}",
+    "description": "ψ"
+  },
+  "Greek Psi": {
+    "prefix": "Psi",
+    "body": "\\Psi${0}",
+    "description": "Ψ"
+  },
+  "Greek omega": {
+    "prefix": "omega",
+    "body": "\\omega${0}",
+    "description": "ω"
+  },
+  "Greek Omega": {
+    "prefix": "Omega",
+    "body": "\\Omega${0}",
+    "description": "Ω"
+  },
+  "Greek chi": {
+    "prefix": "chi",
+    "body": "\\chi${0}",
+    "description": "χ"
+  },
+  "Greek xi": {
+    "prefix": "xi",
+    "body": "\\xi${0}",
+    "description": "ξ"
+  },
+  "Greek pi": {
+    "prefix": "pi",
+    "body": "\\pi${0}",
+    "description": "π"
+  },
+  "Greek Pi": {
+    "prefix": "Pi",
+    "body": "\\Pi${0}",
+    "description": "Π"
+  },
+  "Greek tau": {
+    "prefix": "tau",
+    "body": "\\tau${0}",
+    "description": "τ"
+  },
+  "Greek eta": {
+    "prefix": "eta",
+    "body": "\\eta${0}",
+    "description": "η"
+  },
+  "Greek theta": {
+    "prefix": "theta",
+    "body": "\\theta${0}",
+    "description": "θ"
+  },
+  "Greek Theta": {
+    "prefix": "Theta",
+    "body": "\\Theta${0}",
+    "description": "Θ"
+  },
+  "Greek Lambda": {
+    "prefix": "Lambda",
+    "body": "\\Lambda${0}",
+    "description": "Λ"
+  },
+  "Greek Gamma": {
+    "prefix": "Gamma",
+    "body": "\\Gamma${0}",
+    "description": "Γ"
+  },
+  "Greek Delta": {
+    "prefix": "Delta",
+    "body": "\\Delta${0}",
+    "description": "Δ"
+  },
+  "Greek Sigma": {
+    "prefix": "Sigma",
+    "body": "\\Sigma${0}",
+    "description": "Σ"
+  },
+  "Metric tensor (down)": {
+    "prefix": "gdd",
+    "body": "g_{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Metric tensor g_μν"
+  },
+  "Metric tensor (up)": {
+    "prefix": "guu",
+    "body": "g^{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Inverse metric g^μν"
+  },
+  "Flat metric (down)": {
+    "prefix": "etadd",
+    "body": "\\eta_{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Minkowski metric η_μν"
+  },
+  "Flat metric (up)": {
+    "prefix": "etauu",
+    "body": "\\eta^{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Minkowski metric η^μν"
+  },
+  "Kronecker delta": {
+    "prefix": "kron",
+    "body": "\\delta^{${1:\\mu}}{}_{${2:\\nu}}${0}",
+    "description": "Kronecker delta δ^μ_ν"
+  },
+  "Levi-Civita (4D)": {
+    "prefix": "levi",
+    "body": "\\epsilon_{${1:\\mu}${2:\\nu}${3:\\rho}${4:\\sigma}}${0}",
+    "description": "Levi-Civita symbol ε_μνρσ"
+  },
+  "Christoffel Symbol": {
+    "prefix": "chris",
+    "body": "\\Gamma^{${1:\\rho}}{}_{${2:\\mu}${3:\\nu}}${0}",
+    "description": "Christoffel symbol Γ^ρ_μν"
+  },
+  "Riemann Tensor": {
+    "prefix": "riem",
+    "body": "R^{${1:\\rho}}{}_{${2:\\sigma}${3:\\mu}${4:\\nu}}${0}",
+    "description": "Riemann tensor R^ρ_σμν"
+  },
+  "Ricci Tensor": {
+    "prefix": "ricci",
+    "body": "R_{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Ricci tensor R_μν"
+  },
+  "Ricci Scalar": {
+    "prefix": "riccis",
+    "body": "R${0}",
+    "description": "Ricci scalar R"
+  },
+  "Einstein Tensor": {
+    "prefix": "einst",
+    "body": "G_{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Einstein tensor G_μν"
+  },
+  "Stress-Energy Tensor": {
+    "prefix": "tmunu",
+    "body": "T_{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Stress-energy tensor T_μν"
+  },
+  "Einstein Field Equations": {
+    "prefix": "efe",
+    "body": "G_{${1:\\mu}${2:\\nu}} = 8\\pi G\\, T_{${1:\\mu}${2:\\nu}}${0}",
+    "description": "Einstein field equations G_μν = 8πG T_μν"
+  },
+  "Vierbein (tetrad)": {
+    "prefix": "vierbein",
+    "body": "e^{${1:a}}{}_{${2:\\mu}}${0}",
+    "description": "Vierbein/tetrad e^a_μ"
+  },
+  "Spin connection": {
+    "prefix": "spincon",
+    "body": "\\omega_{${1:\\mu}}{}^{${2:a}}{}_{${3:b}}${0}",
+    "description": "Spin connection ω_μ^ab"
+  },
+  "Covariant divergence": {
+    "prefix": "covdiv",
+    "body": "\\nabla_{${1:\\mu}} ${2:V}^{${1:\\mu}}${0}",
+    "description": "Covariant divergence ∇_μ V^μ"
+  },
+  "Symmetrization": {
+    "prefix": "sym",
+    "body": "\\left( ${1:\\mu} ${2:\\nu} \\right)${0}",
+    "description": "Index symmetrization (μν)"
+  },
+  "Antisymmetrization": {
+    "prefix": "asym",
+    "body": "\\left[ ${1:\\mu} ${2:\\nu} \\right]${0}",
+    "description": "Index antisymmetrization [μν]"
+  },
+  "Exterior Derivative": {
+    "prefix": "extd",
+    "body": "d${1:\\omega}${0}",
+    "description": "Exterior derivative dω"
+  },
+  "Wedge Product": {
+    "prefix": "wedge",
+    "body": "${1} \\wedge ${2}${0}",
+    "description": "Wedge product ∧"
+  },
+  "Hodge Star": {
+    "prefix": "hodge",
+    "body": "\\star\\, ${1}${0}",
+    "description": "Hodge dual ⋆"
+  },
+  "Volume Form": {
+    "prefix": "vol",
+    "body": "\\sqrt{-g}\\, d^{${1:4}}x${0}",
+    "description": "Invariant volume form √(-g) d^4x"
+  },
+  "Killing Equation": {
+    "prefix": "killing",
+    "body": "\\nabla_{(${1:\\mu}} \\xi_{${2:\\nu})} = 0${0}",
+    "description": "Killing equation ∇_(μ ξ_ν) = 0"
+  },
+  "Geodesic Equation": {
+    "prefix": "geod",
+    "body": "\\frac{d^2 x^{${1:\\mu}}}{d\\tau^2} + \\Gamma^{${1:\\mu}}{}_{${2:\\nu}${3:\\rho}} \\frac{dx^{${2:\\nu}}}{d\\tau} \\frac{dx^{${3:\\rho}}}{d\\tau} = 0${0}",
+    "description": "Geodesic equation"
+  },
+  "Line Element": {
+    "prefix": "lineel",
+    "body": "ds^2 = g_{${1:\\mu}${2:\\nu}}\\, dx^{${1:\\mu}} dx^{${2:\\nu}}${0}",
+    "description": "Line element ds²"
+  },
+  "FLRW Line Element": {
+    "prefix": "flrw",
+    "body": "ds^2 = -dt^2 + a^2(t)\\left[ \\frac{dr^2}{1-kr^2} + r^2 d\\Omega^2 \\right]${0}",
+    "description": "FLRW metric"
+  },
+  "Solid Angle Element": {
+    "prefix": "domega",
+    "body": "d\\Omega^2 = d\\theta^2 + \\sin^2\\!\\theta\\, d\\varphi^2${0}",
+    "description": "2-sphere solid angle element"
+  },
+  "Bianchi Identity": {
+    "prefix": "bianchi",
+    "body": "\\nabla_{[${1:\\rho}} R_{${2:\\sigma}${3:\\mu}]${4:\\nu}} = 0${0}",
+    "description": "Bianchi identity ∇_[ρ R_σμ]ν = 0"
+  },
+  "Action": {
+    "prefix": "action",
+    "body": "S[${1:\\phi}] = \\int d^4x\\, \\mathcal{L}(${1:\\phi}, \\partial_\\mu ${1:\\phi})${0}",
+    "description": "Classical action S[φ]"
+  },
+  "Euclidean Action": {
+    "prefix": "actionE",
+    "body": "S_E[${1:\\phi}] = \\int d^4x_E\\, \\mathcal{L}_E(${1:\\phi})${0}",
+    "description": "Euclidean action"
+  },
+  "Lagrangian Density": {
+    "prefix": "lag",
+    "body": "\\mathcal{L}(${1:\\phi}, \\partial_\\mu ${1:\\phi})${0}",
+    "description": "Lagrangian density ℒ"
+  },
+  "Generating Functional Z[J]": {
+    "prefix": "Zj",
+    "body": "Z[${1:J}] = \\int \\mathcal{D}${2:\\phi}\\, \\exp\\!\\left( i S[${2:\\phi}] + i\\int d^4x\\, ${1:J}(x)${2:\\phi}(x) \\right)${0}",
+    "description": "Generating functional Z[J]"
+  },
+  "Connected Generating Functional W[J]": {
+    "prefix": "Wj",
+    "body": "W[${1:J}] = -i \\ln Z[${1:J}]${0}",
+    "description": "Connected generating functional W[J]"
+  },
+  "1PI Effective Action Gamma": {
+    "prefix": "Gamma1PI",
+    "body": "\\Gamma[${1:\\phi_{\\mathrm{cl}}}] = W[J] - \\int d^4x\\, J(x)\\, ${1:\\phi_{\\mathrm{cl}}}(x)${0}",
+    "description": "1PI effective action Γ[φ_cl] via Legendre transform"
+  },
+  "Effective Potential": {
+    "prefix": "Veff",
+    "body": "V_{\\mathrm{eff}}(${1:\\phi})${0}",
+    "description": "Effective potential V_eff(φ)"
+  },
+  "Coleman-Weinberg Potential": {
+    "prefix": "Vcw",
+    "body": "V_{\\mathrm{CW}}(${1:\\phi}) = \\frac{1}{64\\pi^2} M^4(${1:\\phi}) \\left[ \\ln\\frac{M^2(${1:\\phi})}{\\mu^2} - \\frac{3}{2} \\right]${0}",
+    "description": "One-loop Coleman-Weinberg potential"
+  },
+  "One-loop correction": {
+    "prefix": "V1loop",
+    "body": "V^{(1)}(${1:\\phi}) = \\frac{1}{64\\pi^2} M^4(${1:\\phi}) \\left( \\ln\\frac{M^2(${1:\\phi})}{\\mu^2} - c \\right)${0}",
+    "description": "Generic one-loop potential correction"
+  },
+  "Propagator (Feynman)": {
+    "prefix": "prop",
+    "body": "\\frac{i}{p^2 - m^2 + i\\varepsilon}${0}",
+    "description": "Scalar Feynman propagator"
+  },
+  "Propagator (position space)": {
+    "prefix": "propx",
+    "body": "\\Delta_F(x - y) = \\int \\frac{d^4p}{(2\\pi)^4} \\frac{i\\, e^{-ip\\cdot(x-y)}}{p^2 - m^2 + i\\varepsilon}${0}",
+    "description": "Position-space Feynman propagator"
+  },
+  "Dirac Propagator": {
+    "prefix": "propD",
+    "body": "\\frac{i(\\slashed{p} + m)}{p^2 - m^2 + i\\varepsilon}${0}",
+    "description": "Dirac fermion propagator"
+  },
+  "Feynman Slash": {
+    "prefix": "slash",
+    "body": "\\slashed{${1:p}}${0}",
+    "description": "Feynman slash /p"
+  },
+  "Normal Ordering": {
+    "prefix": "nord",
+    "body": ":\\!${1}\\!:${0}",
+    "description": "Normal ordering :O:"
+  },
+  "Time Ordering": {
+    "prefix": "tord",
+    "body": "\\mathcal{T}\\!\\left\\{ ${1} \\right\\}${0}",
+    "description": "Time-ordering operator T{...}"
+  },
+  "Vacuum Expectation Value": {
+    "prefix": "vev",
+    "body": "\\langle 0 | ${1} | 0 \\rangle${0}",
+    "description": "Vacuum expectation value ⟨0|O|0⟩"
+  },
+  "Expectation Value": {
+    "prefix": "expval",
+    "body": "\\langle ${1:\\psi} | ${2:\\hat{O}} | ${1:\\psi} \\rangle${0}",
+    "description": "Expectation value ⟨ψ|O|ψ⟩"
+  },
+  "Matrix Element": {
+    "prefix": "mel",
+    "body": "\\langle ${1:\\psi} | ${2:\\hat{O}} | ${3:\\phi} \\rangle${0}",
+    "description": "General matrix element ⟨ψ|O|φ⟩"
+  },
+  "Bra": {
+    "prefix": "bra",
+    "body": "\\langle ${1} |${0}",
+    "description": "Bra ⟨ψ|"
+  },
+  "Ket": {
+    "prefix": "ket",
+    "body": "| ${1} \\rangle${0}",
+    "description": "Ket |ψ⟩"
+  },
+  "Inner Product": {
+    "prefix": "ip",
+    "body": "\\langle ${1:\\psi} | ${2:\\phi} \\rangle${0}",
+    "description": "Bra-ket inner product"
+  },
+  "Commutator": {
+    "prefix": "comm",
+    "body": "\\left[ ${1:A}, ${2:B} \\right]${0}",
+    "description": "Commutator [A, B]"
+  },
+  "Anti-commutator": {
+    "prefix": "acomm",
+    "body": "\\left\\{ ${1:A}, ${2:B} \\right\\}${0}",
+    "description": "Anti-commutator {A, B}"
+  },
+  "Creation Operator": {
+    "prefix": "adag",
+    "body": "a^{\\dagger}_{${1:\\mathbf{k}}}${0}",
+    "description": "Creation operator a†_k"
+  },
+  "Annihilation Operator": {
+    "prefix": "ann",
+    "body": "a_{${1:\\mathbf{k}}}${0}",
+    "description": "Annihilation operator a_k"
+  },
+  "Canonical Commutation Relation": {
+    "prefix": "ccr",
+    "body": "\\left[ \\hat{${1:\\phi}}(\\mathbf{x}), \\hat{\\pi}(\\mathbf{y}) \\right] = i\\delta^{(3)}(\\mathbf{x} - \\mathbf{y})${0}",
+    "description": "Equal-time canonical commutation relation"
+  },
+  "Mode Expansion (scalar)": {
+    "prefix": "modeexp",
+    "body": "\\hat{${1:\\phi}}(x) = \\int \\frac{d^3k}{(2\\pi)^3} \\frac{1}{\\sqrt{2\\omega_{\\mathbf{k}}}} \\left( a_{\\mathbf{k}}\\, e^{-ik\\cdot x} + a^{\\dagger}_{\\mathbf{k}}\\, e^{ik\\cdot x} \\right)${0}",
+    "description": "Scalar field mode expansion"
+  },
+  "S-matrix element": {
+    "prefix": "smat",
+    "body": "\\langle ${1:f} | S | ${2:i} \\rangle${0}",
+    "description": "S-matrix element"
+  },
+  "T-matrix element": {
+    "prefix": "tmat",
+    "body": "i\\mathcal{M}(${1:i} \\to ${2:f})${0}",
+    "description": "Invariant amplitude iM"
+  },
+  "LSZ reduction": {
+    "prefix": "lsz",
+    "body": "\\langle ${1:p_1 \\cdots p_n} | S | ${2:k_1 \\cdots k_m} \\rangle = \\prod_i \\left( \\frac{i}{p_i^2 - m^2} \\right) \\tilde{G}^{(n+m)}(\\{p\\}, \\{k\\})${0}",
+    "description": "LSZ reduction formula (schematic)"
+  },
+  "Dimensional Regularization measure": {
+    "prefix": "dimreg",
+    "body": "\\mu^{4-d} \\int \\frac{d^d ${1:p}}{(2\\pi)^d}\\, ${0}",
+    "description": "Dimensional regularization loop measure with μ^{4-d}"
+  },
+  "Wick Rotation": {
+    "prefix": "wick",
+    "body": "p^0 \\to i p^0_E, \\quad p^2 \\to -p_E^2${0}",
+    "description": "Wick rotation substitution"
+  },
+  "Trace": {
+    "prefix": "tr",
+    "body": "\\mathrm{Tr}\\!\\left[ ${1} \\right]${0}",
+    "description": "Trace Tr[...]"
+  },
+  "Determinant": {
+    "prefix": "det",
+    "body": "\\det\\!\\left( ${1} \\right)${0}",
+    "description": "Determinant det(...)"
+  },
+  "Log Determinant": {
+    "prefix": "logdet",
+    "body": "\\ln \\det\\!\\left( ${1} \\right) = \\mathrm{Tr} \\ln\\!\\left( ${1} \\right)${0}",
+    "description": "ln det = Tr ln identity"
+  },
+  "Heat Kernel / Schwinger proper time": {
+    "prefix": "schwtime",
+    "body": "\\int_0^{\\infty} \\frac{ds}{s}\\, e^{-s M^2}\\, K(x, x; s)${0}",
+    "description": "Schwinger proper-time representation of one-loop determinant"
+  },
+  "Bounce Action": {
+    "prefix": "bounce",
+    "body": "S_B = \\int d^4x \\left[ \\frac{1}{2}(\\partial_\\mu \\phi)^2 + V(\\phi) \\right]${0}",
+    "description": "Euclidean bounce action for false vacuum decay"
+  },
+  "Tunneling Exponent": {
+    "prefix": "tunnel",
+    "body": "\\Gamma \\sim A\\, e^{-B}\\, (1 + \\mathcal{O}(\\hbar))${0}",
+    "description": "False vacuum decay rate Γ ~ A e^{-B}"
+  },
+  "Bubble nucleation rate": {
+    "prefix": "nucrate",
+    "body": "\\frac{\\Gamma}{V} = A\\, e^{-S_E / \\hbar}${0}",
+    "description": "Bubble nucleation rate per unit volume"
+  },
+  "Effective coupling RG": {
+    "prefix": "rgrun",
+    "body": "\\mu \\frac{d ${1:\\lambda}}{d\\mu} = \\beta(${1:\\lambda})${0}",
+    "description": "RG running of coupling λ"
+  },
+  "Beta function": {
+    "prefix": "betafn",
+    "body": "\\beta(${1:\\lambda}) = \\mu \\frac{\\partial ${1:\\lambda}}{\\partial \\mu}\\bigg|_{g_0, m_0}${0}",
+    "description": "Beta function β(λ)"
+  },
+  "Anomalous dimension": {
+    "prefix": "anom",
+    "body": "\\gamma = \\mu \\frac{\\partial \\ln Z_{\\phi}}{\\partial \\mu}${0}",
+    "description": "Anomalous dimension γ"
+  },
+  "Thermal partition function": {
+    "prefix": "Zbeta",
+    "body": "Z(\\beta) = \\mathrm{Tr}\\, e^{-\\beta \\hat{H}}${0}",
+    "description": "Thermal partition function Z(β)"
+  },
+  "Matsubara frequency (bosonic)": {
+    "prefix": "matsuB",
+    "body": "\\omega_n = \\frac{2\\pi n}{\\beta}${0}",
+    "description": "Bosonic Matsubara frequency"
+  },
+  "Matsubara frequency (fermionic)": {
+    "prefix": "matsuF",
+    "body": "\\omega_n = \\frac{(2n+1)\\pi}{\\beta}${0}",
+    "description": "Fermionic Matsubara frequency"
+  },
+  "Finite-T sum-integral": {
+    "prefix": "sumint",
+    "body": "T \\sum_{n=-\\infty}^{\\infty} \\int \\frac{d^3k}{(2\\pi)^3}\\, ${0}",
+    "description": "Matsubara sum-integral T Σ_n ∫ d³k/(2π)³"
+  },
+  "Hubble parameter": {
+    "prefix": "hubble",
+    "body": "H = \\frac{\\dot{a}}{a}${0}",
+    "description": "Hubble parameter H = ȧ/a"
+  },
+  "Friedmann Equation": {
+    "prefix": "friedmann",
+    "body": "H^2 = \\frac{8\\pi G}{3} \\rho - \\frac{k}{a^2} + \\frac{\\Lambda}{3}${0}",
+    "description": "Friedmann equation"
+  },
+  "Summation": {
+    "prefix": "summ",
+    "body": "\\sum_{${1:n}=${2:0}}^{${3:\\infty}} ${0}",
+    "description": "Summation"
+  },
+  "Product": {
+    "prefix": "prodd",
+    "body": "\\prod_{${1:n}=${2:0}}^{${3:\\infty}} ${0}",
+    "description": "Product Π"
+  },
+  "Limit": {
+    "prefix": "lim",
+    "body": "\\lim_{${1:x} \\to ${2:\\infty}} ${0}",
+    "description": "Limit"
+  },
+  "Big O": {
+    "prefix": "bigO",
+    "body": "\\mathcal{O}\\!\\left( ${1} \\right)${0}",
+    "description": "Big-O notation"
+  },
+  "Order hbar": {
+    "prefix": "ohbar",
+    "body": "\\mathcal{O}(\\hbar^{${1:2}})${0}",
+    "description": "Order in ℏ"
+  },
+  "Approximation": {
+    "prefix": "appr",
+    "body": "\\approx${0}",
+    "description": "≈"
+  },
+  "Sim / proportional": {
+    "prefix": "sim",
+    "body": "\\sim${0}",
+    "description": "∼"
+  },
+  "Proportional to": {
+    "prefix": "propto",
+    "body": "\\propto${0}",
+    "description": "∝"
+  },
+  "Scaling Parens": {
+    "prefix": "lp",
+    "body": "\\left( ${1} \\right)${0}",
+    "description": "Auto-scaling ( )"
+  },
+  "Scaling Square Brackets": {
+    "prefix": "lb",
+    "body": "\\left[ ${1} \\right]${0}",
+    "description": "Auto-scaling [ ]"
+  },
+  "Scaling Curly Braces": {
+    "prefix": "lc",
+    "body": "\\left\\{ ${1} \\right\\}${0}",
+    "description": "Auto-scaling { }"
+  },
+  "Scaling Absolute Value": {
+    "prefix": "lv",
+    "body": "\\left| ${1} \\right|${0}",
+    "description": "Auto-scaling | |"
+  },
+  "Scaling Norm": {
+    "prefix": "lnorm",
+    "body": "\\left\\| ${1} \\right\\|${0}",
+    "description": "Auto-scaling ‖ ‖"
+  },
+  "Scaling Angle Brackets": {
+    "prefix": "lang",
+    "body": "\\left\\langle ${1} \\right\\rangle${0}",
+    "description": "Auto-scaling ⟨ ⟩"
+  },
+  "Evaluated At": {
+    "prefix": "eval",
+    "body": "\\left. ${1} \\right|_{${2}}${0}",
+    "description": "Expression evaluated at | _x"
+  },
+  "Bar": {
+    "prefix": "bar",
+    "body": "\\bar{${1:x}}${0}",
+    "description": "Bar over symbol"
+  },
+  "Wide Bar": {
+    "prefix": "wbar",
+    "body": "\\overline{${1}}${0}",
+    "description": "Wide overline"
+  },
+  "Tilde": {
+    "prefix": "tilde",
+    "body": "\\tilde{${1:x}}${0}",
+    "description": "Tilde ~"
+  },
+  "Wide Tilde": {
+    "prefix": "wtilde",
+    "body": "\\widetilde{${1}}${0}",
+    "description": "Wide tilde"
+  },
+  "Hat": {
+    "prefix": "hat",
+    "body": "\\hat{${1:x}}${0}",
+    "description": "Hat ^"
+  },
+  "Wide Hat": {
+    "prefix": "what",
+    "body": "\\widehat{${1}}${0}",
+    "description": "Wide hat"
+  },
+  "Vec": {
+    "prefix": "vec",
+    "body": "\\vec{${1:v}}${0}",
+    "description": "Vector arrow"
+  },
+  "Bold vector": {
+    "prefix": "bvec",
+    "body": "\\mathbf{${1:v}}${0}",
+    "description": "Bold math vector"
+  },
+  "Bold Symbol": {
+    "prefix": "bsym",
+    "body": "\\boldsymbol{${1}}${0}",
+    "description": "Bold symbol (works for Greek)"
+  },
+  "Dot": {
+    "prefix": "dot",
+    "body": "\\dot{${1:x}}${0}",
+    "description": "Dot above"
+  },
+  "Triple Dot": {
+    "prefix": "dddot",
+    "body": "\\dddot{${1:x}}${0}",
+    "description": "Triple dot above"
+  },
+  "Check": {
+    "prefix": "check",
+    "body": "\\check{${1:x}}${0}",
+    "description": "Breve/check accent"
+  },
+  "hbar": {
+    "prefix": "hbar",
+    "body": "\\hbar${0}",
+    "description": "ℏ"
+  },
+  "Partial": {
+    "prefix": "pa",
+    "body": "\\partial${0}",
+    "description": "∂"
+  },
+  "Nabla": {
+    "prefix": "nab",
+    "body": "\\nabla${0}",
+    "description": "∇"
+  },
+  "Infinity": {
+    "prefix": "inf",
+    "body": "\\infty${0}",
+    "description": "∞"
+  },
+  "Plus Minus": {
+    "prefix": "pm",
+    "body": "\\pm${0}",
+    "description": "±"
+  },
+  "Times": {
+    "prefix": "xx",
+    "body": "\\times${0}",
+    "description": "×"
+  },
+  "Cdot": {
+    "prefix": "cdot",
+    "body": "\\cdot${0}",
+    "description": "·"
+  },
+  "Otimes": {
+    "prefix": "otimes",
+    "body": "\\otimes${0}",
+    "description": "⊗ tensor product"
+  },
+  "Oplus": {
+    "prefix": "oplus",
+    "body": "\\oplus${0}",
+    "description": "⊕ direct sum"
+  },
+  "Implies": {
+    "prefix": "implies",
+    "body": "\\implies${0}",
+    "description": "⟹"
+  },
+  "Iff": {
+    "prefix": "iff",
+    "body": "\\iff${0}",
+    "description": "⟺"
+  },
+  "Right Arrow": {
+    "prefix": "rarr",
+    "body": "\\rightarrow${0}",
+    "description": "→"
+  },
+  "Left Arrow": {
+    "prefix": "larr",
+    "body": "\\leftarrow${0}",
+    "description": "←"
+  },
+  "Long Right Arrow": {
+    "prefix": "lrarr",
+    "body": "\\longrightarrow${0}",
+    "description": "⟶"
+  },
+  "Much Less Than": {
+    "prefix": "ll",
+    "body": "\\ll${0}",
+    "description": "≪"
+  },
+  "Much Greater Than": {
+    "prefix": "gg",
+    "body": "\\gg${0}",
+    "description": "≫"
+  },
+  "Leq": {
+    "prefix": "leq",
+    "body": "\\leq${0}",
+    "description": "≤"
+  },
+  "Geq": {
+    "prefix": "geq",
+    "body": "\\geq${0}",
+    "description": "≥"
+  },
+  "Neq": {
+    "prefix": "neq",
+    "body": "\\neq${0}",
+    "description": "≠"
+  },
+  "Doteq": {
+    "prefix": "doteq",
+    "body": "\\doteq${0}",
+    "description": "≐ (defined as)"
+  },
+  "Equiv": {
+    "prefix": "equiv",
+    "body": "\\equiv${0}",
+    "description": "≡"
+  },
+  "Element of": {
+    "prefix": "inn",
+    "body": "\\in${0}",
+    "description": "∈"
+  },
+  "For all": {
+    "prefix": "fall",
+    "body": "\\forall${0}",
+    "description": "∀"
+  },
+  "There exists": {
+    "prefix": "exist",
+    "body": "\\exists${0}",
+    "description": "∃"
+  },
+  "Delta function": {
+    "prefix": "dirac",
+    "body": "\\delta^{(${1:4})}(${2:x - y})${0}",
+    "description": "Dirac delta δ^(n)(x-y)"
+  },
+  "Theta function (Heaviside)": {
+    "prefix": "heav",
+    "body": "\\Theta(${1:x})${0}",
+    "description": "Heaviside step function Θ(x)"
+  },
+  "mathcal": {
+    "prefix": "mca",
+    "body": "\\mathcal{${1}}${0}",
+    "description": "Calligraphic font"
+  },
+  "mathscr": {
+    "prefix": "scr",
+    "body": "\\mathscr{${1}}${0}",
+    "description": "Script font"
+  },
+  "mathbb": {
+    "prefix": "mbb",
+    "body": "\\mathbb{${1:R}}${0}",
+    "description": "Blackboard bold (ℝ, ℂ, ℤ, etc.)"
+  },
+  "Unnumbered align": {
+    "prefix": "al",
+    "body": "\\begin{align*}\n\t${1}\n\\end{align*}${0}",
+    "description": "align* environment"
+  },
+  "Numbered align": {
+    "prefix": "aln",
+    "body": "\\begin{align}\n\t${1} \\label{eq:${2}}\n\\end{align}${0}",
+    "description": "align environment with label"
+  },
+  "Unnumbered equation": {
+    "prefix": "eq",
+    "body": "\\[\n\t${1}\n\\]${0}",
+    "description": "Display equation \\[ \\]"
+  },
+  "Numbered equation": {
+    "prefix": "equ",
+    "body": "\\begin{equation}\n\t${1}\n\t\\label{eq:${2}}\n\\end{equation}${0}",
+    "description": "Numbered equation with label"
+  },
+  "Split (inside equation)": {
+    "prefix": "spl",
+    "body": "\\begin{split}\n\t${1} &= ${2} \\\\\n\t${0}\n\\end{split}",
+    "description": "split environment"
+  },
+  "Gather": {
+    "prefix": "gat",
+    "body": "\\begin{gather*}\n\t${1}\n\\end{gather*}${0}",
+    "description": "gather* environment"
+  },
+  "Cases": {
+    "prefix": "cas",
+    "body": "\\begin{cases}\n\t${1}, & \\text{if } ${2} \\\\\n\t${3}, & \\text{otherwise}\n\\end{cases}${0}",
+    "description": "cases environment"
+  },
+  "Equation Reference": {
+    "prefix": "eqref",
+    "body": "Eq.\\eqref{eq:${1:label}}${0}",
+    "description": "Eq. reference"
+  },
+  "Label": {
+    "prefix": "lab",
+    "body": "\\label{eq:${1:name}}${0}",
+    "description": "Equation label"
+  }
 }

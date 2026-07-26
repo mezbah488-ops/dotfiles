@@ -9,6 +9,10 @@ return {
       enable_check_bracket_line = false,
     }
 
+    -- Disable default autopairing for ' and "
+    npairs.remove_rule "'"
+    npairs.remove_rule '"'
+
     local Rule = require 'nvim-autopairs.rule'
     local cond = require 'nvim-autopairs.conds'
 
